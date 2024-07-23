@@ -1,0 +1,308 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  <link rel="icon" href="{% static 'img/logo12 1.svg'%}">
+  <title>Tela Inicial</title>
+</head>
+
+<body id="body-apresentacao">
+  <header class="mb-5 header-apresentacao">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary nav-apresentacao" style="background: rgba(0, 0, 0, 0.40) !important;">
+
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'img/logo12 1.svg'%}" alt="">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 40%; font-family: Times new Roman;" >
+            <li class="nav-item" style="padding-right: 25%;">
+              <a class="btn d-flex flex-column ps-0 text-laranja"  style="background-color: transparent;" href="./cadastro">Início</a>
+            </li>
+            <li class="nav-item"style="padding-right: 25%;">
+              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./exames">Exames</a>
+            </li>
+            <li class="nav-item"style="padding-right: 25%;">
+              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./ficha">Ficha</a>
+            </li>
+            <li class="nav-item" style="padding-right: 25%;">
+              <button type="button" class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" data-bs-toggle="modal" data-bs-target="#contactModal">
+                Login
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container-fluid pt-lg-5 mb-5" >
+    <section class="row justify-content-center mt-lg-5 mb-xxl-5 align-items-end section-principal">
+      <div class="col-10 col-lg-7 text-white mt-5 mt-5 mb-xxl-5">
+        <h1 class="my-xl-5 pt-xl-5">A anamnese, na prática clinica, consiste na rememoração dos eventos pregressos relacionados
+          a saúde.</h1>
+        <p class="m-0">A anamnese é o diálogo estabelecido entre profissional de saúde e paciente com o objetivo de ajudá-lo a
+          lembrar de situações e fatos que podem estar relacionados a sua doença.</p>
+      </div>
+      <div class="d-flex justify-content-end mx-5 p-5"  >
+        <a href="#oque" class="btn btn-lg btn-warning btn-proximo text-white">Proximo</a>
+      </div> 
+    </section>
+
+    <section class="row justify-content-evenly align-items-center p-5" id="oque-e">
+
+      <div class="col-12 col-lg-4 d-flex justify-content-center img-ficha">
+        <img src="{% static 'img/image 4.svg'%}" class="imagem-svg" alt="">
+      </div>
+
+      <div class="col-12 col-lg-4" style="width: 41.1875rem;">
+        <div class="p-2 p-lg-5 border-4 border-secondary" id="oque">
+          <div class="p-2 p-lg-5">
+            <h1 class="fw-bold fs-1">O que é ficha de anamnese</h1>
+            <p class="fs-4">
+              No momento em que a anamnese é realizada, é preenchida uma ficha.
+              Ela é como um relatório de informações importantes para o diagnóstico
+              e identificação do paciente. Tudo isso para que o profissional responsável
+              tenha como monitorar de forma bem específica as necessidades coletadas
+              durante a consulta.
+            </p>
+          </div>
+        </div>
+        
+      </div>
+      <div class="d-flex justify-content-end mx-5 p-5"  >
+        <a href="#exames" class="btn btn-lg btn-warning btn-proximo text-white">Proximo</a>
+      </div> 
+    </section>
+
+    <section class="row justify-content-center pb-5 exames" id="exames">
+
+      <div class="d-flex flex-column align-items-center my-0 my-lg-5">
+        <h3 class="text-center mt-0 mt-lg-5 fw-semibold fs-1">Exames</h3>
+        <div class="linha-azul"></div>
+      </div>
+
+      <div class="col-10 col-md-5 col-xl-2 d-flex flex-column align-items-center pt-5 text-white bg-cards mt-5 mt-xl-0 me-2" style="width: 252px; height: 587px; background-color: #41B6B6;">
+        <img src="{% static 'img/user (1).svg'%}" alt="">
+        <h4>Dados de identificação</h4>
+
+        <ul class="ps-0 pb-5 my-5" style="font-size: 20px;">
+          <li>Nome</li>
+          <li>Idade</li>
+          <li>Endereço</li>
+          <li>Sexo</li>
+        </ul>
+
+        <div class="d-flex justify-content-end mx-4 p-3"style="margin-top: -20px;">
+          <a href="./dados" class="btn btn-lg btn-warning btn-proximo text-white">Saiba mais</a>
+        </div>
+      </div>
+
+      <div class="col-10 col-md-5 col-xl-2 d-flex flex-column align-items-center pt-5 text-white bg-cards mt-5 mt-xl-0 me-2" style="width: 252px; height: 587px;background-color: #5FB5B2;">
+
+        <img src="{% static 'img/smartphone-nfc.svg'%}" alt="">
+        <h4>Sintomas e Queixas</h4>
+
+        <ul class="pb-5 my-5" style="font-size: 20px;">
+          <li>Remédios utilizados;</li>
+          <li>Fumante;</li>
+          <li>Consumo de alcool;</li>
+          <li>Sono regular</li>
+        </ul>
+
+        <div class="d-flex justify-content-end mx-4 p-3" style="margin-top: -21px;">
+          <a href="./sintomas" class="btn btn-lg btn-warning btn-proximo text-white">Saiba mais</a>
+        </div>
+      </div>
+
+      <div class="col-10 col-md-5 col-xl-2 d-flex flex-column align-items-center pt-5 text-white bg-cards mt-5 mt-xl-0 me-2" style="width: 252px; height: 587px; background-color: #36B6B6;">
+
+        <img src="{% static 'img/users.svg'%}" alt="">
+        <h4>Histórico</h4>
+
+        <ul class="pb-5 m-5" style="font-size: 20px;">
+          <li>Cânceres;</li>
+          <li>Doenças Respiratórias;</li>
+          <li>Diabetes;</li>
+          <li>Alzheimer;</li>
+        </ul>
+
+        <div class="d-flex justify-content-end mx-4 p-3"style="margin-top: -50px;">
+          <a href="./familiar" class="btn btn-lg btn-warning btn-proximo text-white">Saiba mais</a>
+        </div>
+      </div>
+      <div class="col-10 col-md-5 col-xl-2 d-flex flex-column align-items-center pt-5 text-white bg-cards mt-5 mt-xl-0 me-2" style="width: 252px; height: 587px;background-color: #11A9AD;">
+        <img src="{% static 'img/list.svg'%}" alt="">
+        <h4 style="text-align: center; margin-bottom: 30px;">Historia da doença atual</h4>
+
+        <ul class="pb-5 mb-5" style="font-size: 20px;">
+          <li>Cronologia;</li>
+          <li>Localização corporal;</li>
+          <li>Quantidade;</li>
+          <li>Fatores agravantes</li>
+        </ul>
+
+        <div class="d-flex justify-content-end mx-4 p-3"style="margin-top: -24px;">
+          <a href="./doenças" class="btn btn-lg btn-warning btn-proximo text-white">Saiba mais</a>
+        </div>
+      </div>
+
+       <div class="d-flex justify-content-end mx-5 p-5">
+        <a href="#contatos" class="btn btn-lg btn-warning btn-proximo text-white">Próximo</a>
+      </div> 
+    </section>
+
+    <section class="row justify-content-center justify-content-lg-around bg-laranja p-5" id="contatos">
+      <div class="d-flex flex-column align-items-center mb-5">
+        <h3 class="text-center mt-5 fw-semibold fs-1">Contatos</h3>
+        <div class="linha-laranja"></div>
+      </div>
+
+      <div class="col-12 col-md-10 col-lg-5">
+        <div class="">
+          <h4 class="text-laranja text-center fw-normal">Fale conosco</h4>
+          <span class="text-center">Preencha o formulario abaixo e um dos nossos consultores entrará em contato.</span>
+        </div>
+
+        <div class="inputs-group d-flex flex-column">
+          <input type="text" class="form-control my-3" placeholder="Nome" name="nome" id="nome">
+          <input type="text" class="form-control mb-3" placeholder="E-mail" name="email" id="email">
+          <textarea class="form-control mb-3" placeholder="Mensagem..." name="" id="" cols="30" rows="10"></textarea>
+          <div class="d-flex justify-content-end">
+            <a href="#" class="btn btn-warning btn-proximo text-white mx-5 p-3" style="width: 90px;  font-size: 20px; " >
+              Enviar
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-10 col-lg-5 d-flex align-items-center justify-content-center">
+        <div class="d-flex flex-column justify-content-center text-laranja fw-normal">
+          <span class="fs-4">
+            <img src="{% static 'img/WhatsApp.svg'%}" alt="">
+            (84)99814-7348
+          </span>
+          <span class="fs-4">
+            <img src="{% static 'img/Email.svg'%}" alt="">
+            cuidedasuasaude@gmail.com
+          </span>
+          <span class="fs-4">
+            <img src="{% static 'img/Instagram.svg'%}" alt="">
+            @cuidedasuasaude.lert
+          </span>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end mx-5 p-5">
+        <a href="#exames" class="btn btn-lg btn-warning btn-proximo text-white">Voltar</a>
+      </div> 
+    </section>
+
+    <section class="row justify-content-center justify-content-lg-around bg-laranja criadores">
+      <h5 class="fw-bold text-uppercase text-center text-azul mb-5">Criadores</h5>
+
+      <div class="col-10 col-md-5 col-xl-3 d-flex justify-content-center my-5">
+        <div class="card bg-cinza" style="width: 18rem;">
+          <div class="d-flex justify-content-center p-4">
+            <img src="./img/Ellipse 54.png" class="card-img-top" style="width: 10rem; height: 10rem;" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Luis Filipe Vieira Limão</h5>
+            <span class="card-subtitle fw-semibold">Técnico em informática </span>
+            <p class="card-text mt-4">Natural da cidade de Luis Gomes RN, aos 19 anos, cursa o 3° ano de informática no
+              IFRN campus Pau dos Ferros.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-10 col-md-5 col-xl-3 d-flex justify-content-center my-5">
+        <div class="card bg-cinza" style="width: 18rem;">
+          <div class="d-flex justify-content-center p-4">
+            <img src="./img/image 6.png" class="card-img-top" style="width: 10rem; height: 10rem;" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Maria Thauane da Silva Alves</h5>
+            <span class="card-subtitle fw-semibold">Técnico em informática </span>
+            <p class="card-text mt-4">Natural da cidade de São Francisco do Oeste RN, aos 17 anos, cursa o 3° ano de
+              informática no IFRN campus Pau dos Ferros.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-10 col-md-5 col-xl-3 d-flex justify-content-center my-5">
+        <div class="card bg-cinza" style="width: 18rem;">
+          <div class="d-flex justify-content-center p-4">
+            <img src="./img/image 7.png" class="card-img-top" style="width: 10rem; height: 10rem;" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Evlyn Gabrielly dos Satos Oliveira</h5>
+            <span class="card-subtitle fw-semibold">Técnico em informática </span>
+            <p class="card-text mt-4">Natural da cidade de Pilões RN, aos 18 anos, cursa o 3° ano de informática no IFRN
+              campus Pau dos Ferros.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-10 col-md-5 col-xl-3 d-flex justify-content-center my-5">
+        <div class="card bg-cinza" style="width: 18rem;">
+          <div class="d-flex justify-content-center p-4">
+            <img src="./img/image 9.png" class="card-img-top" style="width: 10rem; height: 10rem;" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Maria Raissa Pereira da Silva</h5>
+            <span class="card-subtitle fw-semibold">Técnico em informática </span>
+            <p class="card-text mt-4">Natural da cidade de Riacho de Santana RN, aos 18 anos, cursa o 3° ano de
+              informática no IFRN campus Pau dos Ferros.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal fade p-0" id="contactModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered justify-content-center">
+          <div class="modal-content d-flex align-items-center justify-content-center w-100 w-lg-100 h-75">
+              <section class="row form d-flex justify-content-center position-relative w-100 h-75" style="background-color: #0D5959;">
+                <div class="img d-none d-lg-flex">
+                  <img src="{% static 'img/user (1).svg'%}" alt="">
+                </div>
+            
+                <form action="" method="post" class="col-10 d-flex w-100  justify-content-start align-items-center flex-column p-4 p-lg-5 p-md-5 p-lg-3 mt-5 mx-5 h-75">
+                  <h1 class="text-white mt-3">Login</h1>
+                  <div class="input-group d-flex flex-column  justify-content-end my-3 my-lg-3">
+                    <label for="" class="form-label text-white fs-3 fw-semibold me-2">Usuário</label>
+                    <input type="text" name="" id="" class="form-control nome w-100">
+                  </div>
+            
+                  <div class="input-group d-flex flex-column  justify-content-end my-3 my-lg-3">
+                    <label for="" class="form-label text-white fs-3 fw-semibold ms-0 me-4">Senha</label>
+                    <input type="password" id="pass" name="password" class="form-control cpf w-100">
+                  </div>
+          
+                  <div class="d-flex flex-column">
+                    <a href="./" class="btn btn-lg btn-warning btn-proximo p-3 fs-3 fw-semibold text-white">Login</a>
+                    <!-- <a href="./cadastrar.html" class="text-white text-decoration-none fs-3 mt-3">Não tem conta? Cadastre-se!</a> -->
+                  </div>
+          
+                </form>
+              </section>
+          </div>        
+        </div>
+      </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

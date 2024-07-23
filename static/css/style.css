@@ -1,0 +1,233 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body#body-apresentacao{
+    background-image: url("../img/image\ 2.png");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% !important;
+    font-family: 'Times New Roman', Times, serif;  
+}
+.nav-item :hover{
+    color:#975500;
+}
+
+#oque-e{
+    background-color: #D8EAF0;
+}
+
+body#ficha{
+    background-color: #C7C7C7;
+}
+header.header-apresentacao{
+    height: 150px !important;
+}
+nav.nav-apresentacao{
+    background-color: transparent !important;
+}
+.cabecalho-dados-pessoais{
+    height: 150px;
+    background-color: #CAD8D8;
+}
+.link-nav{
+    color: #FF9104 !important;
+    font-size: 2rem;
+    background-color: transparent;
+}
+.btn-proximo{
+    background-color: #FF9104 !important;
+}
+section:not(section.section-principal, section.bg-laranja, section.criadores){
+    background-color: #D8EAF0;
+}
+.nav-link{
+    font-size: 2rem;
+}
+section.exames > h3{
+    color: #000;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Times New Roman;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+}
+section.section-principal h1{
+    font-size: 2.5rem;
+}
+section.section-principal p{
+    font-size: 1.7rem;
+}
+.img-ficha{
+    width: 43.5rem;
+    height: 33.25rem;
+}
+.img-ficha > img{
+    width: 100%;
+}
+div.linha-azul{
+    width: 18.25rem;
+    height: 0.75rem;
+    background: #50BDBA;
+}
+div.linha-laranja{
+    width: 18.25rem;
+    height: 0.75rem;
+    background: #FF9104;
+}
+section.exames img{
+    width: 5rem;
+    height: 5rem;
+}
+.bg-cards{
+    background-color: #50BDBA;
+}
+.bg-laranja{
+    background-color: #F0E9E9;
+}
+.bg-cinza{
+    background-color: #D9D9D9;
+}
+.border-4{
+    border: 4px solid;
+}
+.text-laranja{
+    color: #FF9104;
+    font-size: 2rem;
+}
+.text-azul{
+    color: #50BDBA !important;
+}
+.criadores > h5{
+    font-size: 4rem;
+}
+.cabecalho-folha > h1{
+    color: #ED931F;
+    text-align: center;
+    font-family: Times New Roman;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.borda-exames{
+    width: 4rem;
+    height: 1.125rem;
+    border: 4px solid #000;
+}
+.borda-preta{
+    border: 4px solid #000;
+}
+.borda-cima{
+    border-top: 4px solid #000;
+}
+.w-40{
+    width: 40%;
+}
+section.form{
+    width: 44.75rem;
+    height: 47.0625rem;
+    position: relative;
+}
+.img{
+    width: 15.375rem;
+    height: 13.625rem;
+    background-color: #0B3331;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+label.cpf{
+    padding-left: 4rem !important;
+}
+label.email, label.senha{
+    padding-left: 2rem !important;
+}
+input.nome{
+    margin-top: 1.7%;
+    background-color: white !important;
+    height: 50%;
+    border-radius: 10px;
+    border: 3px solid #3DCBFD;
+    color: black !important;
+    font-size: 1.5rem;
+}
+input.cpf, input.email, input.senha{
+    background-color: white !important;
+    height: 90%;
+    border-radius: 10px;
+    border: 3px solid #3DCBFD;
+    color: black !important;
+    font-size: 1.5rem;
+}
+
+.container-i{
+    display: flex;
+}
+
+.a_serem, .realizada{
+    flex: 1; 
+    padding: 20px;
+    margin-left: 150px;
+    margin-top: 50px;
+    background-color: #afdeee;
+    
+}
+
+#bottom_buttons button {
+    background-color: #11A9AD !important; 
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-style: solid;
+    border-radius:10px;
+    width: 250px;
+    height: 80px;
+    margin: 10px;
+}
+
+.button_superior{
+    background: none; 
+    border: none; 
+    color: black; 
+    padding: 0; 
+    font-size: 40px;
+    cursor: pointer;
+    text-decoration:solid; 
+}
+
+
+.navhov a:hover{
+    color: #ff920480 !important;
+}
+@media (max-width: 800px){
+    body{
+        background-image: none !important;
+        background-size: 0 !important;
+        background-color: #CAD8D8;
+    }
+    label.email, label.senha, label.cpf{
+        padding-left: 0 !important;
+    }
+    .criadores > h5{
+        font-size: 3rem;
+    }
+    
+}
+@media (min-width: 992px){
+    .w-lg-100{
+        width: 100% !important;
+    }
+    
+}

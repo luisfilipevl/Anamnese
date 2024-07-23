@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  <title>Ficha</title>
+  <link rel="icon" href="./img/logo12 1.svg">
+</head>
+<body id="ficha">
+  <header class="cabecalho-dados-pessoais">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="./img/logo12 1.svg" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 40%; font-family: Times new Roman;" >
+            <li class="nav-item" style="padding-right: 25%;">
+              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./">Início</a>
+            </li>
+            <li class="nav-item"style="padding-right: 25%;">
+              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./">Exames</a>
+            </li>
+            <li class="nav-item"style="padding-right: 25%;">
+              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./ficha">Ficha</a>
+            </li>
+            <li class="nav-item" style="padding-right: 25%;">
+              <button type="button" class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" data-bs-toggle="modal" data-bs-target="#contactModal">
+                Login
+                
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container-fluid container-md h-100" >
+  
+    <section class="row folha-1 p-5 mt-5 bg-white">
+
+      <div class="d-flex align-items-end cabecalho-folha">
+        <img src="./img/logo12 1.svg" alt="">
+        <h1 class="">Ficha de anamnses</h1>
+      </div>
+
+      <div class="d-flex justify-content-between fw-bold">
+        <h2 class="text-azul fs-1 fw-semibold" >Dados pessoais</h2>
+        <span class="fs-3">DATA: ___/___/___</span>
+      </div>
+
+      <div class="d-flex p-3 mt-4 bg-cinza">
+        <h3 class="fw-bold">Nome:</h3>
+        <h3 class="fw-bold m-auto">Idade:</h3>
+      </div>
+
+      <div class="d-flex p-3 mt-3 bg-cinza">
+        <h3 class="fw-bold">Endereço:</h3>
+        <h3 class="fw-bold m-auto">CEP:</h3>
+      </div>
+
+      <div class="d-flex p-3 mt-3 bg-cinza">
+        <h3 class="fw-bold">Cidade:</h3>
+        <h3 class="fw-bold m-auto">Bairro:</h3>
+        <h3 class="fw-bold m-auto">Estado:</h3>
+      </div>
+
+      <div class="d-flex p-3 mt-3 bg-cinza">
+        <h3 class="fw-bold">Data de Nasc:</h3>
+        <h3 class="fw-bold m-auto">Profissão:</h3>
+        <h3 class="fw-bold m-auto">Estado Civil:</h3>
+      </div>
+
+      <div class="d-flex p-3 mt-4 bg-cinza">
+        <h3 class="fw-bold">E-mail:</h3>
+        <h3 class="fw-bold m-auto">Tel:</h3>
+      </div>
+
+    </section>
+
+    <section class="row justify-content-between bg-white p-5 mt-2">
+      <h1 class="text-azul fs-1 fw-semibold mb-4">Ficha de Exames</h1>
+
+      <div class="col-4">
+        <h2 class="fw-semibold fs-3">Niveis de Pressão Arterial (PA)</h2>
+      
+        <h2 class="fw-semibold fs-3">Níveis de  Plasmáticos de Colesterol:</h2>
+
+        <h2 class="fw-semibold fs-3">Níveis de Glicemia: </h2>
+
+        <h2 class="fw-semibold fs-3">Níveis de Triglicerídeos:</h2>
+
+        <h2 class="fw-semibold fs-3">Relação entre colesterol total e Colesterol HDL:</h2>
+
+        <h2 class="fw-semibold fs-3">Níveis de lipoproteínas: </h2>
+
+        <h2 class="fw-semibold fs-3">Álcool:</h2>
+        
+        <h2 class="fw-semibold fs-3">Fuma:</h2>
+
+        <h2 class="fw-semibold fs-3">Média de tempo que dorme:</h2>
+      </div>
+
+      <div class="col-4">
+
+        <div class="d-flex justify-content-start mb-4">
+          <span class="px-5 py-3 fw-bold borda-exames"></span>
+          <h3 class="fw-semibold">mmHg</h3>
+        </div>
+
+        <div class="d-flex justify-content-start mb-4">
+          <span class="px-5 py-3 fw-bold borda-exames"></span>
+          <h3 class="fw-semibold">mg/dl</h3>
+        </div>
+        
+        <div class="d-flex justify-content-start mb-2">
+          <span class="px-5 py-3 fw-bold borda-exames"></span>
+          <h3 class="fw-semibold">mg/d</h3>
+        </div>
+
+        <div class="d-flex justify-content-start mb-2">
+          <span class="px-5 py-3 fw-bold borda-exames"></span>
+          <h3 class="fw-semibold">mg/dl</h3>
+        </div>
+
+        <div class="d-flex justify-content-start mb-2">
+          <span class="px-5 py-3 fw-bold borda-exames"></span>
+          <h3 class="fw-semibold">CT/HDL-C</h3>
+        </div>
+
+        <div class="d-flex justify-content-start mb-2">
+          <span class="px-5 py-3 fw-bold borda-exames"></span>
+          <h3 class="fw-semibold">LDL</h3>
+        </div>
+
+        <div class="d-flex justify-content-start mb-2">
+          <span class="px-5 py-3 fw-bold borda-exames"></span>
+        </div>
+
+        <div class="d-flex justify-content-start mb-2">
+          <span class="px-5 py-3 fw-bold borda-exames"></span>
+        </div>
+
+        <div class="d-flex justify-content-start mb-5">
+          <span class="px-5 py-3 fw-bold borda-exames"></span>
+          <h3 class="fw-semibold">Horas</h3>
+        </div>
+      </div>
+
+      <h3 class="fw-semibold">Há alguma doença familiar?</h3>
+      <div class="w-100 p-5 mb-5 borda-preta"></div>
+
+      <h3 class="fw-semibold">Relate sobre a doença atual</h3>
+      <div class="w-100 p-5 mb-5 borda-preta"></div>
+
+      <h3 class="fw-semibold">Remedios ou outros fatores a serem adicionados</h3>
+      <div class="w-100 p-5 mb-5 borda-preta"></div>
+
+    </section>
+
+    <section class="row folha-3 p-5 mt-2 bg-white">
+      <h3 class="fw-semibold mt-5">Há a necessidade de presença médica durante a prática de exercícios físicos?</h3>
+      <div class="w-100 p-5 mb-5 borda-preta" ></div>
+
+      <h3 class="fw-semibold">Resultado do questionário PAR-Q:</h3>
+      <p class="fs-4 mb-5">Esse questionário Physical Activity Readiness (PAR-Q), ou Liberação para Atividades Fisicas (LAF-Q), tem como objetivo determinar a necessidade de consulta medica antes do inicio de programas de atividades  físicas ou testes de aptidão física. O questionário consiste em sete perguntas, se o cliente responder “sim “ a qualquer uma delas, devera ser encaminhado para consulta medica.</p>
+
+      <div class="w-100 p-1 mb-5 borda-preta" >
+        <p class="fs-4 fw-normal text-center">O usuário marcou “sim” para as alternativas [], então ele necessitará de acompanhamento médico.</p>
+        <p class="fs-4 fw-normal text-center">1. Alguma vez foi mencionado que você tem algum problema cardíaco ou que só poderia fazer atividade física com recomendação médica?</p>
+      </div>
+
+      <div class="w-100 p-1 mb-5 borda-preta">
+        <p class="fs-4 fw-normal text-center">O usuário marcou "não" para todas as alternativas, logo, ele não se faz necessário a utilização de acompanhamento médico para a realização de testes de aptidão física.</p>
+      </div>
+
+      <h3 class="fw-semibold mb-3">Classificação de risco coronario:</h3>
+      <p class="fs-4 lh-lg">De acordo com o resultado de todos os exames realizados pelo usuário, o nível de risco em que ele se encontra,  é:  <span class="fw-semibold p-1" style="border: 4px solid #000">Baixo risco</span>     <span class="fw-semibold p-1" style="border: 4px solid #000">Risco moderado</span>      <span class="fw-semibold p-1" style="border: 4px solid #000">Alto risco</span></p>
+    </section>
+
+    <section class="row p-5 termo-responsabilidade bg-light">
+      <h4 class="fw-bold fs-1 text-center pt-5 mb-5">Termo de responsabilidade</h4>
+      <h5 class="fw-bold fs-2 text-center pt-5 mb-5">Estou ciente e de acordo com todas as informações acima relacionadas.</h5>
+
+      <div class="d-flex justify-content-between my-5">
+        <h6 class="fs-2 fw-bold pt-4 my-5 text-center borda-cima w-40">Assinatura do Cliente</h6>
+        <h6 class="fs-2 fw-bold pt-4 my-5 text-center borda-cima w-40">Assinatura do Profissional</h6>
+      </div>
+    </section>
+
+
+    <div class="modal fade p-0" id="contactModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered justify-content-center">
+          <div class="modal-content d-flex align-items-center justify-content-center w-100 w-lg-100 h-75">
+              <section class="row form d-flex justify-content-center position-relative w-100 h-75" style="background-color: #0D5959;">
+                <div class="img d-none d-lg-flex">
+                  <img src="./img/user (1).svg" alt="">
+                </div>
+            
+                <form action="" method="post" class="col-10 d-flex w-100  justify-content-start align-items-center flex-column p-4 p-lg-5 p-md-5 p-lg-3 mt-5 mx-5 h-75">
+                  <h1 class="text-white mt-3">Login</h1>
+                  <div class="input-group d-flex flex-column  justify-content-end my-3 my-lg-3">
+                    <label for="" class="form-label text-white fs-3 fw-semibold me-2">Usuário</label>
+                    <input type="text" name="" id="" class="form-control nome w-100">
+                  </div>
+            
+                  <div class="input-group d-flex flex-column  justify-content-end my-3 my-lg-3">
+                    <label for="" class="form-label text-white fs-3 fw-semibold ms-0 me-4">Senha</label>
+                    <input type="text" name="" id="" class="form-control cpf w-100">
+                  </div>
+          
+                  <div class="d-flex flex-column">
+                    <a href="./apresentacao.html" class="btn btn-lg btn-warning btn-proximo p-3 fs-3 fw-semibold text-white">Login</a>
+                    
+                  </div>
+          
+                </form>
+              </section>
+          </div>        
+        </div>
+      </div>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

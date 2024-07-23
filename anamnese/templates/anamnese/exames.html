@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  <title>Exames</title>
+  <link rel="icon" href="{% static 'img/logo12 1.svg'%}">
+</head>
+<body style="background-color: #afdeee;font-family: Times new Roman;">
+  <header class="cabecalho-dados-pessoais" >
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="height: 110%;">
+      <div class="container-fluid" style="background-color: #389cbb; height: 130%;">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'img/logo12 1.svg'%}" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 40%; font-family: Times new Roman;" >
+            <li class="nav-item" style="padding-right: 25%;">
+              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./">Início</a>
+            </li>
+            <li class="nav-item"style="padding-right: 25%;">
+              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./">Exames</a>
+            </li>
+            <li class="nav-item"style="padding-right: 25%;">
+              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./ficha">Ficha</a>
+            </li>
+            <li class="nav-item" style="padding-right: 25%;">
+              <button type="button" class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" data-bs-toggle="modal" data-bs-target="#contactModal">
+                Login
+                
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="container-fluid h-100" >
+        <section class="container-i " style="margin-top: 3%; margin-left: 5%; background-color: #afdeee;">
+            <div class="a_serem">
+              <button class="button_superior" id="exam_button">Exames a serem feitos: <img src="{% static 'img/setab.svg'%}" alt=""></button>
+              <div id="bottom_buttons" style="display: none; width: 800px;">
+                <a href="./dados"><button>Dados Pessoais</button></a>
+                <a href="./familiar"><button>Histórico familiar</button></a>
+                <a href="./doenças"><button>Histórico da doença atual</button></a>
+                <a href="./sintomas"><button >Sintomas e queixas</button></a>
+                <button>Pressão arterial (PA)</button>
+                <button>Triglicerídeos</button>
+                <button>Lipoproteínas plasmáticas</button>
+                <button>Glicemia</button>
+                <button>Colesterol</button>
+                <button>Colesterol plasmáticos</button>
+                <a href=""><button >Questionário PAR-Q </button></a>
+                <button>Questionário fatores de risco</button>
+              </div>
+
+            </div>
+
+            <div class="realizada">
+              <button class="button_superior" >Exames realizados: <img src="{% static 'img/setab.svg'%}" alt=""></button>
+            </div>   
+        </section>
+    
+
+
+    <div class="modal fade p-0" id="contactModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered justify-content-center">
+          <div class="modal-content d-flex align-items-center justify-content-center w-100 w-lg-100 h-75">
+              <section class="row form d-flex justify-content-center position-relative w-100 h-75" style="background-color: #0D5959;">
+                <div class="img d-none d-lg-flex">
+                  <img src="{% static 'img/user (1).svg'%}" alt="">
+                </div>
+            
+                <form action="" method="post" class="col-10 d-flex w-100  justify-content-start align-items-center flex-column p-4 p-lg-5 p-md-5 p-lg-3 mt-5 mx-5 h-75">
+                  <h1 class="text-white mt-3">Login</h1>
+                  <div class="input-group d-flex flex-column  justify-content-end my-3 my-lg-3">
+                    <label for="" class="form-label text-white fs-3 fw-semibold me-2">Usuário</label>
+                    <input type="text" name="" id="" class="form-control nome w-100">
+                  </div>
+            
+                  <div class="input-group d-flex flex-column  justify-content-end my-3 my-lg-3">
+                    <label for="" class="form-label text-white fs-3 fw-semibold ms-0 me-4">Senha</label>
+                    <input  type="password" id="pass" name="password" class="form-control cpf w-100">
+                  </div>
+          
+                  <div class="d-flex flex-column">
+                    <a href="./" class="btn btn-lg btn-warning btn-proximo p-3 fs-3 fw-semibold text-white">Login</a>
+                   
+                  </div>
+          
+                </form>
+              </section>
+          </div>        
+        </div>
+      </div>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script>
+    var bottom_buttons = document.getElementById("bottom_buttons");
+          var exam_button = document.getElementById("exam_button");
+
+          // Adiciona um evento de clique ao botão
+          exam_button.addEventListener("click", function() {
+              // Verifica se a div está visível
+              if (bottom_buttons.style.display === "none") {
+                  // Se estiver invisível, torna-a visível
+                  bottom_buttons.style.display = "block";
+              } else {
+                  // Se estiver visível, torna-a invisível
+                  bottom_buttons.style.display = "none";
+              }
+          });
+  </script>
+</body>
+</html>
