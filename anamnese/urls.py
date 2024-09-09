@@ -12,6 +12,5 @@ urlpatterns = [
     path('cadastro',views.cadastross),
 
 
-    path('inserir_cadastro',views.in_cadastro,name='inserir_cadastro'),
     
 ]
