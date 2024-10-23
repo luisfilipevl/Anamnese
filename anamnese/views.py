@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from datetime import date
+from .forms import * 
+
 from .models import *
 
 def index(request):
@@ -23,7 +25,18 @@ def fficha (request):
 def examess (request):
     return render (request, 'anamnese/exames.html')
 
+def login (request):
+    return render (request, 'anamnese/login.html')
+
 def cadastross (request):
-    return render (request,'anamnese/cadastro.html' )
+    if request.method == 'POST':
+        form = CadastroForm(request.POST)
+        if form.is_valid():
+            form.save() 
+            return redirect('index')
+            
+    else:
+        form = CadastroForm()
+    return render(request,'anamnese/cadastro.html', {'form': form})
 
 

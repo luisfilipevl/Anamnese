@@ -7,11 +7,7 @@ class CadastroAdmin (admin.ModelAdmin):
 
 @admin.register(Ficha)
 class FichaAdmin (admin.ModelAdmin):
-     list_display=('usuario','dados_pessoais','exames','questionario',)
+     list_display=('nome',)
 
 
-admin.site.register(DadoPessoal)
-admin.site.register(ExameHemograma)
-admin.site.register(Exame)
-admin.site.register(Questionario)
 
