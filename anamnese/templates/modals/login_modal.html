@@ -1,0 +1,70 @@
+{% load static %}
+<!-- Modal HTML -->
+<div class="modal fade" id="contactModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4" style="background-color: #004D4D; border: none; border-radius: 15px;">
+  
+        <!-- Ícone de usuário -->
+        <div class="text-center mb-3">
+          <img src="{% static 'img/user_icon.svg' %}" alt="Usuário" style="width: 70px; background-color: #004D4D; padding: 10px; border-radius: 50%; border: 5px solid #004D4D;">
+        </div>
+  
+        <!-- Título de Login -->
+        <h2 class="text-white text-center mb-4">Login</h2>
+  
+        <!-- Formulário de Login -->
+        <form action="" method="post" class="d-flex flex-column align-items-center">
+          
+          <!-- Campo Usuário -->
+          <div class="form-group mb-3 w-75">
+            <label for="username" class="form-label text-white">Usuário</label>
+            <input type="text" id="username" name="username" class="form-control" style="background-color: #E5E5E5; border: none; height: 45px; border-radius: 5px;">
+          </div>
+  
+          <!-- Campo Senha -->
+          <div class="form-group mb-4 w-75">
+            <label for="password" class="form-label text-white">Senha</label>
+            <input type="password" id="password" name="password" class="form-control" style="background-color: #E5E5E5; border: none; height: 45px; border-radius: 5px;">
+          </div>
+  
+          <!-- Botão de Login -->
+          <button type="submit" class="btn text-white mb-3" style="background-color: #F5A623; width: 75%; height: 45px; border-radius: 5px;">Login</button>
+  
+          <!-- Link para Cadastro -->
+          <p class="text-white text-center" style="font-size: 0.9rem;">
+            Não tem login? <a href="#" class="text-white" style="text-decoration: underline;">faça seu cadastro</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+<style>
+    /* Estilos personalizados para o modal de login */
+.modal-content {
+  background-color: #004D4D;
+  border: none;
+  border-radius: 15px;
+}
+
+.modal-content .form-control {
+  background-color: #E5E5E5;
+  border: none;
+  height: 45px;
+  border-radius: 5px;
+}
+
+.modal-content .btn {
+  background-color: #F5A623;
+  color: white;
+  width: 75%;
+  height: 45px;
+  border-radius: 5px;
+}
+
+.modal-content .text-white a {
+  text-decoration: underline;
+}
+
+</style>

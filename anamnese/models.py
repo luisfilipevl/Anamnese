@@ -13,7 +13,8 @@ class Cadastro(models.Model):
 
 # Fichas de Exames (associadas ao Cadastro/Usuário)
 class Ficha(models.Model):
-    usuario = models.ForeignKey(Cadastro, on_delete=models.CASCADE)  # Relaciona a Ficha com o Usuário
+    usuario = models.ForeignKey(Cadastro, on_delete=models.CASCADE)  
+
     nome = models.CharField(max_length=100, blank=True)
     endereco = models.TextField(blank=True)
     email = models.EmailField(blank=True)
@@ -21,6 +22,7 @@ class Ficha(models.Model):
     sexo = models.CharField(max_length=1, blank=True)
     profissao = models.CharField(max_length=100, blank=True)
     estado_civil = models.CharField(max_length=100, blank=True)
+
     doencas_familiares = models.TextField(blank=True)
     doencas_pessoais = models.TextField(blank=True)
     doencas_atual = models.TextField(blank=True)
@@ -28,6 +30,13 @@ class Ficha(models.Model):
     fuma = models.BooleanField(blank=True)
     consumo_alcool = models.BooleanField(blank=True)
     tempo_medio_sono = models.IntegerField(blank=True, null=True)
+
+    nivel_glicemia = models.FloatField(blank=True, null=True)
+    nivel_colesterol = models.FloatField(blank=True, null=True)
+    nivel_plasmaticos_colesterol = models.FloatField(blank=True, null=True)
+    nivel_triglicerideos = models.FloatField(blank=True, null=True)
+    nivel_lipoproteinas_plasmaticos = models.FloatField(blank=True, null=True)
+    nivel_pressão_arterial = models.FloatField(blank=True, null=True)
 
 
     def __str__(self):

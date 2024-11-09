@@ -97,7 +97,7 @@ section.exames img{
 }
 .text-laranja{
     color: #FF9104;
-    font-size: 2rem;
+    font-size: 35px;
 }
 .text-azul{
     color: #50BDBA !important;
@@ -171,40 +171,6 @@ input.cpf, input.email, input.senha{
 
 .container-i{
     display: flex;
-}
-
-.a_serem, .realizada{
-    flex: 1; 
-    padding: 20px;
-    margin-left: 150px;
-    margin-top: 50px;
-    background-color: #afdeee;
-    
-}
-
-#bottom_buttons button {
-    background-color: #11A9AD !important; 
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    cursor: pointer;
-    border-style: solid;
-    border-radius:10px;
-    width: 250px;
-    height: 80px;
-    margin: 10px;
-}
-
-.button_superior{
-    background: none; 
-    border: none; 
-    color: black; 
-    padding: 0; 
-    font-size: 40px;
-    cursor: pointer;
-    text-decoration:solid; 
 }
 
 

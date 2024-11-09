@@ -1,0 +1,199 @@
+<!-- templates/modals/exam_modal.html -->
+<div class="modal fade" id="examModal" tabindex="-1" aria-labelledby="examModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <!-- Conteúdo das abas -->
+          <div class="tab-header">
+            <div class="active" onclick="showTab('to-do')">Exames a ser feito</div>
+            <div onclick="showTab('done')">Exames concluídos</div>
+          </div>
+          <div id="to-do" class="tab-content">
+            <div class="button-grid">
+              <button>Dados Pessoais</button>
+              <button>Histórico familiar</button>
+              <button>Histórico da doença atual</button>
+              <button>Sintomas e queixas</button>
+              <button>Pressão arterial (PA)</button>
+              <button>Triglicerídeos</button>
+              <button>Lipoproteínas plasmáticas</button>
+              <button>Glicemia</button>
+              <button>Colesterol</button>
+              <button>Colesterol plasmáticos</button>
+              <button>Questionário PAR-Q</button>
+              <button>Questionário fatores de risco</button>
+            </div>
+          </div>
+          <div id="done" class="tab-content" style="display: none;">
+            <div class="button-grid">
+              <button>Histórico familiar</button>
+              <button>Sintomas e queixas</button>
+              <button>Lipoproteínas plasmáticas</button>
+              <button>Glicemia</button>
+              <button>Colesterol plasmáticos</button>
+              <button>Questionário fatores de risco</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+<style>
+    /* Estilo do contêiner com aba */
+    .container-custom {
+      width: 300px;
+      height: 500px;
+      background-color: #5FB5B2;
+      
+      border-radius: 10px;
+      position: relative;
+      padding-top: 30px;
+      margin-top: 20px;
+    }
+
+    /* Estilo da aba */
+    .tab-custom {
+      position: absolute;
+      top: -20px;
+      left: 10px;
+      background-color: #75b6b1;
+      color: #e0e0e0;
+      padding: 5px 15px;
+      border-radius: 10px 10px 0 0;
+      font-size: 14px;
+    }
+
+    /* Estilo do item dentro da div */
+    .item-custom {
+      background-color: #11A9AD;
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 14px;
+      width: fit-content;
+      margin-left: 10px;
+      margin-top: 15px;
+    }
+
+    .tab-custom {
+      background-color: #5FB5B2;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .container-custom .button-grid {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px; /* Espaço entre os botões */
+    }
+
+    .container-custom .button-grid button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: #11A9AD;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .container-custom .button-grid button:hover {
+      background-color: #0d8f8f;
+    }
+    
+
+    .button-grid button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: #11A9AD;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .button-grid button:hover {
+      background-color: #0d8f8f;
+    }
+    .tab-header {
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+      background-color: #005f60;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      color: white;
+    }
+
+    .tab-header div {
+      padding: 10px 20px;
+      cursor: pointer;
+      flex: 1;
+      text-align: center;
+    }
+
+    .tab-header .active {
+      background-color: #5FB5B2;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .tab-content {
+      background-color: #5FB5B2;
+      padding: 20px;
+      color: #ffffff;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .button-grid button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: #11A9AD;
+      border-radius: 10px;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    .button-grid button:hover {
+      background-color: #0d8f8f;
+    }
+
+    /* Remover fundo e sombra do modal */
+    .modal-content {
+      background-color: transparent;
+      box-shadow: none;
+      border: none;
+    }
+
+    
+</style>
+
+
+<script>
+    function showTab(tab) {
+      document.getElementById('to-do').style.display = (tab === 'to-do') ? 'block' : 'none';
+      document.getElementById('done').style.display = (tab === 'done') ? 'block' : 'none';
+      document.querySelectorAll('.tab-header div').forEach(el => el.classList.remove('active'));
+      document.querySelector(`.tab-header div[onclick="showTab('${tab}')"]`).classList.add('active');
+    }
+</script>
