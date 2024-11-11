@@ -1,43 +1,40 @@
 <!-- templates/modals/exam_modal.html -->
 <div class="modal fade" id="examModal" tabindex="-1" aria-labelledby="examModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-body">
-          <!-- Conteúdo das abas -->
-          <div class="tab-header">
-            <div class="active" onclick="showTab('to-do')">Exames a ser feito</div>
-            <div onclick="showTab('done')">Exames concluídos</div>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <!-- Conteúdo das abas -->
+        <div class="tab-header">
+          <div class="active" onclick="showTab('to-do')">Exames a ser feito</div>
+          <div onclick="showTab('done')">Exames concluídos</div>
+        </div>
+        <!-- Exames a ser feito -->
+        <div id="to-do" class="tab-content">
+          <div class="button-grid">
+            <button onclick="moveToDone(this)">Dados Pessoais</button>
+            <button onclick="moveToDone(this)">Histórico familiar</button>
+            <button onclick="moveToDone(this)">Histórico da doença atual</button>
+            <button onclick="moveToDone(this)">Sintomas e queixas</button>
+            <button onclick="moveToDone(this)">Pressão arterial (PA)</button>
+            <button onclick="moveToDone(this)">Triglicerídeos</button>
+            <button onclick="moveToDone(this)">Lipoproteínas plasmáticas</button>
+            <button onclick="moveToDone(this)">Glicemia</button>
+            <button onclick="moveToDone(this)">Colesterol</button>
+            <button onclick="moveToDone(this)">Colesterol plasmáticos</button>
+            <button onclick="moveToDone(this)">Questionário PAR-Q</button>
+            <button onclick="moveToDone(this)">Questionário fatores de risco</button>
           </div>
-          <div id="to-do" class="tab-content">
-            <div class="button-grid">
-              <button>Dados Pessoais</button>
-              <button>Histórico familiar</button>
-              <button>Histórico da doença atual</button>
-              <button>Sintomas e queixas</button>
-              <button>Pressão arterial (PA)</button>
-              <button>Triglicerídeos</button>
-              <button>Lipoproteínas plasmáticas</button>
-              <button>Glicemia</button>
-              <button>Colesterol</button>
-              <button>Colesterol plasmáticos</button>
-              <button>Questionário PAR-Q</button>
-              <button>Questionário fatores de risco</button>
-            </div>
-          </div>
-          <div id="done" class="tab-content" style="display: none;">
-            <div class="button-grid">
-              <button>Histórico familiar</button>
-              <button>Sintomas e queixas</button>
-              <button>Lipoproteínas plasmáticas</button>
-              <button>Glicemia</button>
-              <button>Colesterol plasmáticos</button>
-              <button>Questionário fatores de risco</button>
-            </div>
+        </div>
+        <!-- Exames concluídos -->
+        <div id="done" class="tab-content" style="display: none;">
+          <div class="button-grid">
+            <!-- Botões concluídos vão aparecer aqui -->
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
   
 
 
@@ -180,20 +177,32 @@
 
     /* Remover fundo e sombra do modal */
     .modal-content {
-      background-color: transparent;
+      background-color: transparent; 
       box-shadow: none;
       border: none;
     }
-
+    .modal-content {
+    background-color: #0000000c; 
+    border: none;
+    border-radius: 15px;
+}
     
 </style>
 
 
 <script>
-    function showTab(tab) {
-      document.getElementById('to-do').style.display = (tab === 'to-do') ? 'block' : 'none';
-      document.getElementById('done').style.display = (tab === 'done') ? 'block' : 'none';
-      document.querySelectorAll('.tab-header div').forEach(el => el.classList.remove('active'));
-      document.querySelector(`.tab-header div[onclick="showTab('${tab}')"]`).classList.add('active');
-    }
+  function showTab(tab) {
+    document.getElementById('to-do').style.display = (tab === 'to-do') ? 'block' : 'none';
+    document.getElementById('done').style.display = (tab === 'done') ? 'block' : 'none';
+    document.querySelectorAll('.tab-header div').forEach(el => el.classList.remove('active'));
+    document.querySelector(`.tab-header div[onclick="showTab('${tab}')"]`).classList.add('active');
+  }
+
+  function moveToDone(button) {
+    // Remove o botão da lista de "Exames a ser feito"
+    button.parentNode.removeChild(button);
+    
+    // Adiciona o botão na lista de "Exames concluídos"
+    document.querySelector('#done .button-grid').appendChild(button);
+  }
 </script>

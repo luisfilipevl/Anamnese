@@ -29,8 +29,8 @@ urlpatterns = [
     path('sintomas',views.sintomas),
     path('ficha',views.fficha),
     path('exames',views.examess),
-    path('cadastro',views.cadastross),
-    path('login',views.login),
+    path('cadastro/', views.cadastross, name='cadastross'),
+    path('login',views.login, name='login'),
 ]
 
 if settings.DEBUG:

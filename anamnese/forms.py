@@ -10,7 +10,7 @@ class CadastroForm (forms.ModelForm):
             'nome_usuario': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'senha': forms.TextInput(attrs={'class': 'form-control'}),
-            'cpf': forms.TextInput(attrs={'class': 'form-control'}),
+            'CPF': forms.TextInput(attrs={'class': 'form-control'}),
             
         }
     
@@ -22,9 +22,7 @@ class FichaForm(forms.ModelForm):
         
         widgets = {
             'nome': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'endereco': forms.TextInput(attrs={'class': 'form-control'}),
-            'cpf': forms.TextInput(attrs={'class': 'form-control'}),
             'usuario': forms.Select(attrs={'class': 'form-control'}),
             'data_nascimento': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'sexo': forms.TextInput(attrs={'class': 'form-control'}),
@@ -34,8 +32,6 @@ class FichaForm(forms.ModelForm):
             'doencas_pessoais': forms.Textarea(attrs={'class': 'form-control'}),
             'doencas_atual': forms.Textarea(attrs={'class': 'form-control'}),
             'remedios': forms.Textarea(attrs={'class': 'form-control'}),
-            'fuma': forms.TextInput(attrs={'class': 'form-check-input'}),
-            'consumo_alcool': forms.TextInput(attrs={'class': 'form-check-input'}),
             'tempo_medio_sono': forms.NumberInput(attrs={'class': 'form-control'}),
 
             'nivel_glicemia': forms.NumberInput(attrs={'class': 'form-control'}),

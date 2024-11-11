@@ -1,12 +1,12 @@
 {% load static %}
 <!-- Modal HTML -->
-<div class="modal fade" id="contactModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+<div class="modal fade" id="contactModal" data-bs-backdrop="true" data-bs-keyboard="false" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content p-4" style="background-color: #004D4D; border: none; border-radius: 15px;">
+      <div class="modal-content p-4" id="modal2" style="background-color: #004D4D; border: none; border-radius: 15px;">
   
         <!-- Ícone de usuário -->
         <div class="text-center mb-3">
-          <img src="{% static 'img/user_icon.svg' %}" alt="Usuário" style="width: 70px; background-color: #004D4D; padding: 10px; border-radius: 50%; border: 5px solid #004D4D;">
+          <img src="{% static 'img/userP.png' %}" alt="Usuário" class="icon">
         </div>
   
         <!-- Título de Login -->
@@ -32,17 +32,17 @@
   
           <!-- Link para Cadastro -->
           <p class="text-white text-center" style="font-size: 0.9rem;">
-            Não tem login? <a href="#" class="text-white" style="text-decoration: underline;">faça seu cadastro</a>
+            Não tem login? <a href="#" class="text-white" style="text-decoration: underline;" data-bs-toggle="modal" data-bs-target="#cadastroModal" data-bs-dismiss="modal" >faça seu cadastro</a>
           </p>
         </form>
       </div>
     </div>
   </div>
 
-
+  {% include 'modals/cadastro_modal.html' %}
 <style>
     /* Estilos personalizados para o modal de login */
-.modal-content {
+#modal2 {
   background-color: #004D4D;
   border: none;
   border-radius: 15px;
@@ -66,5 +66,22 @@
 .modal-content .text-white a {
   text-decoration: underline;
 }
+.user-icon {
+        background-color: #0D5959;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        margin: -50px auto 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user-icon .icon {
+        width: 170px;
+        height: 140px;
+        margin-bottom: 100px;
+        
+    }
 
 </style>

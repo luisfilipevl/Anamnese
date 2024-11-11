@@ -43,47 +43,48 @@
     </nav>
   </header>
 
-  <main class="container-fluid container-md h-100" >
-  
+  <main class="container-fluid container-md h-100">
     <section class="row folha-1 p-5 mt-5 bg-white">
-
+  
       <div class="d-flex align-items-end cabecalho-folha">
         <img src="./img/logo12 1.svg" alt="">
-        <h1 class="">Ficha de anamnses</h1>
+        <h1 class="">Ficha de Anamnese</h1>
       </div>
-
+  
       <div class="d-flex justify-content-between fw-bold">
-        <h2 class="text-azul fs-1 fw-semibold" >Dados pessoais</h2>
+        <h2 class="text-azul fs-1 fw-semibold">Dados pessoais</h2>
         <span class="fs-3">DATA: ___/___/___</span>
       </div>
-
+  
+      <!-- Exibindo dados da ficha -->
+      {% for ficha in fichas %}
       <div class="d-flex p-3 mt-4 bg-cinza">
-        <h3 class="fw-bold">Nome:</h3>
-        <h3 class="fw-bold m-auto">Idade:</h3>
+        <h3 class="fw-bold">Nome: {{ ficha.nome }}</h3>
+        <h3 class="fw-bold m-auto">Idade: {{ ficha.idade }}</h3> <!-- Se você tem idade, senão substitua com a data de nascimento -->
       </div>
-
+  
       <div class="d-flex p-3 mt-3 bg-cinza">
-        <h3 class="fw-bold">Endereço:</h3>
-        <h3 class="fw-bold m-auto">CEP:</h3>
+        <h3 class="fw-bold">Endereço: {{ ficha.endereco }}</h3>
+        <h3 class="fw-bold m-auto">CEP: {{ ficha.cep }}</h3>
       </div>
-
+  
       <div class="d-flex p-3 mt-3 bg-cinza">
-        <h3 class="fw-bold">Cidade:</h3>
-        <h3 class="fw-bold m-auto">Bairro:</h3>
-        <h3 class="fw-bold m-auto">Estado:</h3>
+        <h3 class="fw-bold">Cidade: {{ ficha.cidade }}</h3>
+        <h3 class="fw-bold m-auto">Bairro: {{ ficha.bairro }}</h3>
+        <h3 class="fw-bold m-auto">Estado: {{ ficha.estado }}</h3>
       </div>
-
+  
       <div class="d-flex p-3 mt-3 bg-cinza">
-        <h3 class="fw-bold">Data de Nasc:</h3>
-        <h3 class="fw-bold m-auto">Profissão:</h3>
-        <h3 class="fw-bold m-auto">Estado Civil:</h3>
+        <h3 class="fw-bold">Data de Nasc: {{ ficha.data_nascimento }}</h3>
+        <h3 class="fw-bold m-auto">Profissão: {{ ficha.profissao }}</h3>
+        <h3 class="fw-bold m-auto">Estado Civil: {{ ficha.estado_civil }}</h3>
       </div>
-
+  
       <div class="d-flex p-3 mt-4 bg-cinza">
-        <h3 class="fw-bold">E-mail:</h3>
-        <h3 class="fw-bold m-auto">Tel:</h3>
+        <h3 class="fw-bold">E-mail: {{ ficha.usuario.email }}</h3> <!-- Acessando o email do cadastro -->
+        <h3 class="fw-bold m-auto">Tel: {{ ficha.usuario.telefone }}</h3> <!-- Acessando o telefone do cadastro (se existir) -->
       </div>
-
+      
     </section>
 
     <section class="row justify-content-between bg-white p-5 mt-2">
@@ -112,57 +113,57 @@
       <div class="col-4">
 
         <div class="d-flex justify-content-start mb-4">
-          <span class="px-5 py-3 fw-bold borda-exames"></span>
-          <h3 class="fw-semibold">mmHg</h3>
+          <span class="px-5 py-3 fw-bold "></span>
+          <h3 class="fw-semibold">{{ ficha.nivel_pressão_arterial }} mmHg</h3>
         </div>
 
         <div class="d-flex justify-content-start mb-4">
-          <span class="px-5 py-3 fw-bold borda-exames"></span>
-          <h3 class="fw-semibold">mg/dl</h3>
+          <span class="px-5 py-3 fw-bold "></span>
+          <h3 class="fw-semibold">{{ ficha.nivel_colesterol }} mg/dl</h3>
         </div>
         
         <div class="d-flex justify-content-start mb-2">
-          <span class="px-5 py-3 fw-bold borda-exames"></span>
-          <h3 class="fw-semibold">mg/d</h3>
+          <span class="px-5 py-3 fw-bold "></span>
+          <h3 class="fw-semibold">{{ ficha.nivel_glicemia }} mg/d</h3>
         </div>
 
         <div class="d-flex justify-content-start mb-2">
-          <span class="px-5 py-3 fw-bold borda-exames"></span>
-          <h3 class="fw-semibold">mg/dl</h3>
+          <span class="px-5 py-3 fw-bold "></span>
+          <h3 class="fw-semibold">{{ ficha.nivel_triglicerideos }} mg/dl</h3>
         </div>
 
         <div class="d-flex justify-content-start mb-2">
-          <span class="px-5 py-3 fw-bold borda-exames"></span>
-          <h3 class="fw-semibold">CT/HDL-C</h3>
+          <span class="px-5 py-3 fw-bold "></span>
+          <h3 class="fw-semibold">{{ ficha.nivel_plasmaticos_colesterol }} CT/HDL-C</h3>
         </div>
 
         <div class="d-flex justify-content-start mb-2">
-          <span class="px-5 py-3 fw-bold borda-exames"></span>
-          <h3 class="fw-semibold">LDL</h3>
+          <span class="px-5 py-3 fw-bold "></span>
+          <h3 class="fw-semibold">{{ ficha.nivel_lipoproteinas_plasmaticos }} LDL</h3>
         </div>
 
         <div class="d-flex justify-content-start mb-2">
-          <span class="px-5 py-3 fw-bold borda-exames"></span>
+          <span class="px-5 py-3 fw-bold ">{{ ficha.alcool}}</span>
         </div>
 
         <div class="d-flex justify-content-start mb-2">
-          <span class="px-5 py-3 fw-bold borda-exames"></span>
+          <span class="px-5 py-3 fw-bold ">Fuma: {{ ficha.fuma }}</span>
         </div>
 
         <div class="d-flex justify-content-start mb-5">
-          <span class="px-5 py-3 fw-bold borda-exames"></span>
-          <h3 class="fw-semibold">Horas</h3>
+          <span class="px-5 py-3 fw-bold "></span>
+          <h3 class="fw-semibold">{{ ficha.tempo_medio_sono }} Horas</h3>
         </div>
       </div>
 
       <h3 class="fw-semibold">Há alguma doença familiar?</h3>
-      <div class="w-100 p-5 mb-5 borda-preta"></div>
+      <div class="w-100 p-5 mb-5 " style="font-size: 20px;">{{ ficha.doencas_familiares }}</div>
 
       <h3 class="fw-semibold">Relate sobre a doença atual</h3>
-      <div class="w-100 p-5 mb-5 borda-preta"></div>
+      <div class="w-100 p-5 mb-5 " style="font-size: 20px;">{{ ficha.doencas_atual }}</div>
 
       <h3 class="fw-semibold">Remedios ou outros fatores a serem adicionados</h3>
-      <div class="w-100 p-5 mb-5 borda-preta"></div>
+      <div class="w-100 p-5 mb-5 " style="font-size: 20px;">{{ ficha.remedios }}</div>
 
     </section>
 
@@ -195,38 +196,8 @@
         <h6 class="fs-2 fw-bold pt-4 my-5 text-center borda-cima w-40">Assinatura do Profissional</h6>
       </div>
     </section>
+    {% endfor %}
 
-
-    <div class="modal fade p-0" id="contactModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered justify-content-center">
-          <div class="modal-content d-flex align-items-center justify-content-center w-100 w-lg-100 h-75">
-              <section class="row form d-flex justify-content-center position-relative w-100 h-75" style="background-color: #0D5959;">
-                <div class="img d-none d-lg-flex">
-                  <img src="./img/user (1).svg" alt="">
-                </div>
-            
-                <form action="" method="post" class="col-10 d-flex w-100  justify-content-start align-items-center flex-column p-4 p-lg-5 p-md-5 p-lg-3 mt-5 mx-5 h-75">
-                  <h1 class="text-white mt-3">Login</h1>
-                  <div class="input-group d-flex flex-column  justify-content-end my-3 my-lg-3">
-                    <label for="" class="form-label text-white fs-3 fw-semibold me-2">Usuário</label>
-                    <input type="text" name="" id="" class="form-control nome w-100">
-                  </div>
-            
-                  <div class="input-group d-flex flex-column  justify-content-end my-3 my-lg-3">
-                    <label for="" class="form-label text-white fs-3 fw-semibold ms-0 me-4">Senha</label>
-                    <input type="text" name="" id="" class="form-control cpf w-100">
-                  </div>
-          
-                  <div class="d-flex flex-column">
-                    <a href="./apresentacao.html" class="btn btn-lg btn-warning btn-proximo p-3 fs-3 fw-semibold text-white">Login</a>
-                    
-                  </div>
-          
-                </form>
-              </section>
-          </div>        
-        </div>
-      </div>
 
   </main>
 

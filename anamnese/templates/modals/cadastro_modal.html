@@ -1,0 +1,118 @@
+{% load static %}
+<!-- Cadastro Modal -->
+<div class="modal fade" id="cadastroModal" data-bs-backdrop="true" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-cadastro-content">
+            <section class="modal-body p-5 text-center" style="background-color: #0D5959;">
+                <div class="user-icon">
+                    <img src="{% static 'img/testt.PNG' %}" alt="Ícone de Usuário" class="icon">
+                </div>
+
+                <h2 class="modal-title mb-4">Cadastro</h2>
+
+                <form method="post" action="{% url 'cadastross' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="nomeUsuario" class="form-label visually-hidden">Nome de Usuário</label>
+                        {{ form.nome_usuario }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="cpf" class="form-label visually-hidden">CPF</label>
+                        {{ form.cpf }}
+                    </div>
+                
+                    <div class="mb-3">
+                        <label for="email" class="form-label visually-hidden">E-mail</label>
+                        {{ form.email }}
+                    </div>
+                
+                    <div class="mb-3">
+                        <label for="senha" class="form-label visually-hidden">Senha</label>
+                        {{ form.senha }}
+                    </div>
+                
+                    <button type="submit" class="btn btn-cadastrar mt-4">Cadastrar</button>
+                </form>
+
+                
+                <p class="text-muted text-center" style="font-size: 0.9rem;">
+                    Já tem uma conta? <a href="#" class="text-muted" style="text-decoration: underline;" data-bs-toggle="modal" data-bs-target="#contactModal" data-bs-dismiss="modal">Voltar aqui</a>
+                </p>
+            </section>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* CSS para o Modal de Cadastro */
+    .modal-cadastro-content {
+        background-color: #0D5959 !important; /* Fundo verde escuro */
+        border-radius: 15px !important;
+        width: 130%;
+        max-width: 500px;
+        padding: 30px;
+    }
+
+    .user-icon {
+        background-color: #0D5959;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        margin: -50px auto 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .user-icon .icon {
+        width: 210px;
+        height: 180px;
+        margin-bottom: 100px;
+        
+    }
+
+    .modal-title {
+        color: #FFFFFF !important; /* Cor do título */
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .form-control {
+        background-color: #FFFFFF !important; /* Fundo dos campos de input */
+        border: none !important;
+        border-radius: 5px !important;
+        height: 45px;
+        padding-left: 15px;
+        font-size: 1rem;
+    }
+
+    .form-control::placeholder {
+        color: #333 !important; /* Cor do placeholder */
+    }
+
+    .btn-cadastrar {
+        background-color: #FFA500 !important; /* Cor do botão */
+        color: #FFFFFF !important;
+        border: none;
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .btn-cadastrar:hover {
+        background-color: #e69500 !important;
+    }
+
+    .text-muted {
+        color: #E0E0E0 !important; /* Cor cinza claro para o texto de rodapé */
+    }
+
+    .text-muted a {
+        color: #FFA500 !important;
+    }
+
+</style>
