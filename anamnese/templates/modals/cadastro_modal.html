@@ -10,26 +10,26 @@
 
                 <h2 class="modal-title mb-4">Cadastro</h2>
 
-                <form method="post" action="{% url 'cadastross' %}">
+                <form action="{% url 'cadastross' %}" method="post" >
                     {% csrf_token %}
                     <div class="mb-3">
-                        <label for="nomeUsuario" class="form-label visually-hidden">Nome de Usuário</label>
-                        {{ form.nome_usuario }}
+                        <label for="nome_usuario" class="form-label visually-hidden">Nome de Usuário</label>
+                        <input type="text" class="form-control" name="nome_usuario" placeholder="Nome de Usuário">
                     </div>
                     
                     <div class="mb-3">
-                        <label for="cpf" class="form-label visually-hidden">CPF</label>
-                        {{ form.cpf }}
+                        <label for="CPF" class="form-label visually-hidden">CPF</label>
+                        <input type="text" class="form-control" name="CPF" placeholder="CPF">
                     </div>
-                
+
                     <div class="mb-3">
                         <label for="email" class="form-label visually-hidden">E-mail</label>
-                        {{ form.email }}
+                        <input type="email" class="form-control" name="email" placeholder="E-mail">
                     </div>
-                
+
                     <div class="mb-3">
                         <label for="senha" class="form-label visually-hidden">Senha</label>
-                        {{ form.senha }}
+                        <input type="password" class="form-control" name="senha" placeholder="Senha">
                     </div>
                 
                     <button type="submit" class="btn btn-cadastrar mt-4">Cadastrar</button>
