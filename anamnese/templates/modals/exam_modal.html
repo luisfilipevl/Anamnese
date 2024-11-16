@@ -16,7 +16,7 @@
             <button onclick="moveToDone(this)">Histórico da doença atual</button>
             <button onclick="moveToDone(this)">Sintomas e queixas</button>
             <button onclick="moveToDone(this)">Pressão arterial (PA)</button>
-            <button onclick="moveToDone(this)">Triglicerídeos</button>
+            <button onclick="moveToDone(this)" data-bs-toggle="modal" data-bs-target="#triglicerideosModal">Triglicerídeos</button>
             <button onclick="moveToDone(this)">Lipoproteínas plasmáticas</button>
             <button onclick="moveToDone(this)">Glicemia</button>
             <button onclick="moveToDone(this)">Colesterol</button>
@@ -36,7 +36,7 @@
   </div>
 </div>
   
-
+{% include 'modals/Triglicerídeos_modal.html' %}
 
 <style>
     /* Estilo do contêiner com aba */
@@ -205,4 +205,15 @@
     // Adiciona o botão na lista de "Exames concluídos"
     document.querySelector('#done .button-grid').appendChild(button);
   }
+  document.addEventListener('hidden.bs.modal', function () {
+    // Remove backdrop residual quando um modal é fechado
+    const backdropElements = document.querySelectorAll('.modal-backdrop');
+    backdropElements.forEach(backdrop => backdrop.remove());
+});
+
+document.addEventListener('show.bs.modal', function () {
+    // Remove qualquer backdrop residual ao abrir um novo modal
+    const backdropElements = document.querySelectorAll('.modal-backdrop');
+    backdropElements.forEach(backdrop => backdrop.remove());
+});
 </script>

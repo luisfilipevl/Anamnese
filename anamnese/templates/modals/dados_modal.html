@@ -1,0 +1,114 @@
+{% load static %}
+
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Modal -->
+<div class="modal fade" id="customModal" tabindex="-1" aria-labelledby="customModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="custom-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="customModalLabel">Dados</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST" action="{% url 'atualizar_cadastro' cadastro_id=cadastro.id %}">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nome de Usuário</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="username" 
+                            name="nome_usuario" 
+                            value="{{ cadastro.nome_usuario }}" 
+                        >
+                    </div>
+                    <div class="mb-3">
+                        <label for="cpf" class="form-label">CPF</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="cpf" 
+                            name="CPF" 
+                            value="{{ cadastro.CPF }}" 
+                        >
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input 
+                            type="email" 
+                            class="form-control" 
+                            id="email" 
+                            name="email" 
+                            value="{{ cadastro.email }}" 
+                        >
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-custom">Salvar Alterações</button>
+                    <a 
+                        class="btn btn-custom" 
+                        href="{% url 'excluir_cadastro' cadastro_id=cadastro.id %}">Excluir Conta</a>
+                    <a 
+                        class="btn btn-custom" 
+                        href="{% url 'logout' %}">Sair da Conta</a>
+                    <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Estilos Personalizados -->
+<style>
+    /* Modal */
+    #custom-modal {
+        background-color: #155e63;
+        color: #fff;
+    }
+
+    #custom-modal .modal-content {
+        background-color: #155e63;
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    #custom-modal .modal-header h5 {
+        font-size: 1.5rem;
+        text-align: center;
+        width: 100%;
+        color: #e5e5e5;
+    }
+
+    #custom-modal .form-label {
+        color: #e5e5e5;
+    }
+
+    #custom-modal .form-control {
+        background-color: #e9edef;
+        color: #333;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+
+    #custom-modal .btn-custom {
+        background-color: #fcb13b;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        width: 48%;
+        margin: 5px 1%;
+    }
+
+    #custom-modal .modal-footer {
+        justify-content: center;
+        padding-top: 20px;
+    }
+</style>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>

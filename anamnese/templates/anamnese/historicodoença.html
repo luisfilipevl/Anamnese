@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 40%; font-family: Times new Roman;" >
             <li class="nav-item" style="padding-right: 25%;">
-              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./">Início</a>
+              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="{% url 'index_usuario' cadastro_id=cadastro_id %}" >Início</a>
             </li>
             <li class="nav-item"style="padding-right: 25%;">
               <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./">Exames</a>
@@ -70,14 +70,19 @@
 
     </section>
 
-    <section class="row justify-content-between justify-content-lg-around p-5" style="background-color: #11A9AD; font-family: Times new Roman;">
-      <div class="col-12 col-sm-10 col-lg-10">
-        <div class="input-groups">
-          <input type="text" name="Relato:" id="Relato:" class="form-control mb-3" placeholder="Relato:">
+    <form method="post">
+      {% csrf_token %}
+      <section class="row justify-content-between justify-content-lg-around p-5" style="background-color: #11A9AD; font-family: Times new Roman;">
+        <div class="col-12 col-sm-10 col-lg-10">
+          <div class="input-groups">
+            <input type="text" name="doencas_atual" id="doencas_atual" class="form-control mb-3" placeholder="Relato:" value="{{ ficha.doencas_atual }}">
+          </div>
         </div>
-      </div>
-      
-    </section>
+        <div class="modal-footer border-0 d-flex justify-content-between">
+          <button type="submit" class="btn btn-lg btn-danger mt-5" style="background-color: #ED931F !important; border: #ED931F; margin-left: 10%;">Salvar</button>
+        </div>
+      </section>
+    </form>
 
     <section class="row py-5 justify-content-center" style="background-color: #d9d9d9;font-family: Times new Roman;">
       <div class="col-12 p-5 d-flex justify-content-center justify-content-lg-around my-5">

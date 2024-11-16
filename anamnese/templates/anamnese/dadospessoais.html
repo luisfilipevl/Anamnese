@@ -22,19 +22,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 40%; font-family: Times new Roman;" >
             <li class="nav-item" style="padding-right: 25%;">
-              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./">Início</a>
+              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="{% url 'index_usuario' cadastro_id=cadastro_id %}" >Início</a>
             </li>
             <li class="nav-item"style="padding-right: 25%;">
-              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./exames">Exames</a>
+              <a class="btn d-flex flex-column ps-0 text-laranja"  href="#" data-bs-toggle="modal" data-bs-target="#examModal">Exames</a>
             </li>
             <li class="nav-item"style="padding-right: 25%;">
               <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./ficha">Ficha</a>
             </li>
-            <li class="nav-item" style="padding-right: 25%;">
-              <button type="button" class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" data-bs-toggle="modal" data-bs-target="#contactModal">
-                Login
+            <li class="nav-item" style="padding-right: 25%;"> {% csrf_token %}
+              {% if request.user.is_authenticated %}
+                <button type="button" class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" data-bs-toggle="modal" data-bs-target="#customModal" data-cadastro-id="{{ cadastro.id }}">
+                {{ request.user.username |slice:":6"}} </button>
                 
-              </button>
+                  
+              {% else %}
+                <button type="button" class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" data-bs-toggle="modal" data-bs-target="#contactModal">
+                  Login </button>
+              {% endif %}
             </li>
           </ul>
         </div>
@@ -61,40 +66,47 @@
 
     </section>
 
-    <section class="row justify-content-between justify-content-lg-around p-5" style="background-color: #41B6B6;">
-      <div class="col-12 col-sm-10 col-lg-5">
-        <div class="input-groups">
-          <input type="text" name="nome" id="nome" class="form-control mb-3" placeholder="Nome">
-          <input type="text" name="endereco" id="endereco" class="form-control mb-3" placeholder="Endereço">
-          <input type="text" name="email" id="email" class="form-control mb-3" placeholder="E-mail">
-        </div>
-      </div>
-      <div class="col-12 col-sm-10 col-lg-5">
-        <div class="input-groups d-flex justify-content-between justify-content-lg-around">
-          <div class="">
-            <input type="date" class="form-control mb-5" name="data-nascimento" id="data-nascimento">
-
-            <select class="form-control mt-5" name="sexo" id="sexo">
-              <option value="">Sexo:</option>
-              <option value="Masculino">Masculino</option>
-              <option value="Feminino">Feminino</option>
-              <option value="nao informar">Não Informar</option>
-            </select>
-          </div>
-
-          <div class="pb-5">
-            <select class="form-control mb-5" name="estado-civil" id="estado-civil">
-              <option value="">Estado Civil</option>
-              <option value="solteiro">Solteiro</option>
-              <option value="casado">Casado</option>
-              <option value="divoriciado">Divoriciado</option>
-            </select>
-  
-            <input type="text" name="profissao" id="profissao" placeholder="Profissão" class="form-control mt-4">
+    <form method="post">
+      {% csrf_token %}
+      <section class="row justify-content-between justify-content-lg-around p-5" style="background-color: #41B6B6;">
+        <div class="col-12 col-sm-10 col-lg-5">
+          <div class="input-groups">
+            <input type="text" name="nome" id="nome" class="form-control mb-3" placeholder="Nome" value="{{ ficha.usuario.nome_usuario }}">
+            <input type="text" name="endereco" id="endereco" class="form-control mb-3" placeholder="Endereço" value="{{ ficha.endereco }}">
+            <input type="email" name="email" id="email" class="form-control mb-3" placeholder="E-mail" value="{{ ficha.usuario.email }}">
           </div>
         </div>
-      </div>
-    </section>
+        <div class="col-12 col-sm-10 col-lg-5">
+          <div class="input-groups d-flex justify-content-between justify-content-lg-around">
+            <div class="">
+              <input type="date" class="form-control mb-5" name="data_nascimento" id="data-nascimento" value="{{ ficha.data_nascimento|date:'Y-m-d' }}">
+    
+              <select class="form-control mt-5" name="sexo" id="sexo">
+                <option value="" {% if ficha.sexo == "" %}selected{% endif %}>Sexo:</option>
+                <option value="Masculino" {% if ficha.sexo == "Masculino" %}selected{% endif %}>Masculino</option>
+                <option value="Feminino" {% if ficha.sexo == "Feminino" %}selected{% endif %}>Feminino</option>
+                <option value="nao informar" {% if ficha.sexo == "nao informar" %}selected{% endif %}>Não Informar</option>
+              </select>
+            </div>
+    
+            <div class="pb-5">
+              <select class="form-control mb-5" name="estado_civil" id="estado-civil">
+                <option value="" {% if ficha.estado_civil == "" %}selected{% endif %}>Estado Civil</option>
+                <option value="solteiro" {% if ficha.estado_civil == "solteiro" %}selected{% endif %}>Solteiro</option>
+                <option value="casado" {% if ficha.estado_civil == "casado" %}selected{% endif %}>Casado</option>
+                <option value="divoriciado" {% if ficha.estado_civil == "divoriciado" %}selected{% endif %}>Divoriciado</option>
+              </select>
+    
+              <input type="text" name="profissao" id="profissao" placeholder="Profissão" class="form-control mt-4" value="{{ ficha.profissao }}">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0 d-flex justify-content-between">
+          <button type="submit" class="btn btn-lg btn-danger mt-1" style="background-color: #ED931F !important; border: #ED931F; margin-left: 10%;">Salvar</button>
+        </div>
+      </section>
+      
+    </form>
 
     <section class="row py-5 justify-content-center" style="background-color: #d9d9d9;">
       <div class="col-12 p-5 d-flex justify-content-center justify-content-lg-around my-5">

@@ -10,32 +10,37 @@
   <link rel="icon" href="./img/logo12 1.svg">
 </head>
 <body id="ficha">
-  <header class="cabecalho-dados-pessoais">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <header class="mb-5 header-apresentacao">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary nav-apresentacao" style="background: rgba(0, 0, 0, 0.40) !important;">
+
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img src="./img/logo12 1.svg" alt="">
+          <img src="{% static 'img/logo12 1.svg'%}" alt="">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 40%; font-family: Times new Roman;" >
+
+        <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 40%; font-family: Times new Roman; background-color: transparent;" >
             <li class="nav-item" style="padding-right: 25%;">
-              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./">Início</a>
+              <a class="btn d-flex flex-column ps-0 text-laranja"   href="{% url 'index_usuario' cadastro_id=cadastro_id %}">Início</a>
             </li>
             <li class="nav-item"style="padding-right: 25%;">
-              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./">Exames</a>
+              <a class="btn d-flex flex-column ps-0 text-laranja"  href="#" data-bs-toggle="modal" data-bs-target="#examModal">Exames</a>
             </li>
-            <li class="nav-item"style="padding-right: 25%;">
-              <a class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" href="./ficha">Ficha</a>
-            </li>
-            <li class="nav-item" style="padding-right: 25%;">
-              <button type="button" class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" data-bs-toggle="modal" data-bs-target="#contactModal">
-                Login
+            <li class="nav-item" style="padding-right: 25%;"> {% csrf_token %}
+              {% if request.user.is_authenticated %}
+                <button type="button" class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" data-bs-toggle="modal" data-bs-target="#customModal" data-cadastro-id="{{ cadastro.id }}">
+                {{ request.user.username |slice:":6"}} </button>
                 
-              </button>
+                  
+              {% else %}
+                <button type="button" class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" data-bs-toggle="modal" data-bs-target="#contactModal">
+                  Login </button>
+              {% endif %}
             </li>
           </ul>
         </div>
@@ -57,9 +62,9 @@
       </div>
   
       <!-- Exibindo dados da ficha -->
-      {% for ficha in fichas %}
+      
       <div class="d-flex p-3 mt-4 bg-cinza">
-        <h3 class="fw-bold">Nome: {{ ficha.nome }}</h3>
+        <h3 class="fw-bold">Nome: {{ ficha.usuario.nome_usuario }}</h3>
         <h3 class="fw-bold m-auto">Idade: {{ ficha.idade }}</h3> <!-- Se você tem idade, senão substitua com a data de nascimento -->
       </div>
   
@@ -147,7 +152,7 @@
         </div>
 
         <div class="d-flex justify-content-start mb-2">
-          <span class="px-5 py-3 fw-bold ">Fuma: {{ ficha.fuma }}</span>
+          <span class="px-5 py-3 fw-bold ">{{ ficha.fuma }}</span>
         </div>
 
         <div class="d-flex justify-content-start mb-5">
@@ -196,10 +201,12 @@
         <h6 class="fs-2 fw-bold pt-4 my-5 text-center borda-cima w-40">Assinatura do Profissional</h6>
       </div>
     </section>
-    {% endfor %}
+    
 
 
   </main>
+  {% include 'modals/exam_modal.html' %}
+  {% include 'modals/login_modal.html' %}
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

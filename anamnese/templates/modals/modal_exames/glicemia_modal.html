@@ -1,0 +1,68 @@
+{% load static %}
+<div class="modal fade" id="glicemiaModal" tabindex="-1" aria-labelledby="glicemiaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" id="glicemiaModalContent">
+            <div class="modal-header">
+                <h5 class="modal-title" id="glicemiaModalLabel" style="font-size: 40px;">Glicemia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="font-size: 20px;">
+                <p>Coloque os valores do exame</p>
+                <form>
+                    <div class="mb-3">
+                        <label for="fastingGlucose" class="form-label">Glicemia Jejum</label>
+                        <input type="number" class="form-control" id="fastingGlucose" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="glucose60" class="form-label">Glicemia 60min</label>
+                        <input type="number" class="form-control" id="glucose60" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="glucose120" class="form-label">Glicemia 120min</label>
+                        <input type="number" class="form-control" id="glucose120" placeholder="">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-submit" data-bs-dismiss="modal">Entregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Custom styles for the #glicemiaModal only */
+    #glicemiaModal .modal-content {
+        max-width: 400px; 
+        background-color: #4a4a4a; /* Dark gray background */
+        color: #f5f5f5; /* Light text color */
+        border-radius: 8px;
+        text-align: center;
+    }
+    #glicemiaModal .modal-header, #glicemiaModal .modal-footer {
+        border: none; /* Remove default border */
+    }
+    #glicemiaModal .form-label {
+        font-weight: normal;
+        color: #ffffff;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+    #glicemiaModal .form-control {
+        background-color: #e0e0e0;
+        border: none;
+        border-radius: 4px;
+        width: 100%; /* Adjust width of input */
+    }
+    #glicemiaModal .btn-submit {
+        background-color: #ffa500; /* Orange button */
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        padding: 8px 20px;
+    }
+    #glicemiaModal .btn-submit:hover {
+        background-color: #e69500; /* Darker orange on hover */
+    }
+</style>
