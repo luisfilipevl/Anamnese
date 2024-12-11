@@ -1,0 +1,128 @@
+{% load static %}
+{% csrf_token %}
+<div class="modal fade" id="lipoproteinasModalTabela" tabindex="-1" aria-labelledby="lipoproteinasModalTabelaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="lipoproteinasModalTabelaLabel">Valores de referência para lipoproteínas plasmáticas (mg/dl)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Classificação</th>
+                            <th>LDL</th>
+                            <th>VLDL</th>
+                            <th>HDL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ótimo</td>
+                            <td>&lt; 100</td>
+                            <td>Até 33</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Desejável</td>
+                            <td>100-129</td>
+                            <td>-</td>
+                            <td>&gt; 40</td>
+                        </tr>
+                        <tr>
+                            <td>Limítrofe</td>
+                            <td>130-159</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Alto</td>
+                            <td>160-189</td>
+                            <td>-</td>
+                            <td>&gt; 60*</td>
+                        </tr>
+                        <tr>
+                            <td>Muito alto</td>
+                            <td>&ge; 190</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-4 text-center">Seu nível de lipoproteínas plasmáticas estar {{ ficha.nivel_lipoproteinas_plasmaticos }}.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-submit" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Estilos personalizados para o modal #lipoproteinasModalTabela */
+    #lipoproteinasModalTabela .modal-dialog {
+        max-width: 700px;
+    }
+
+    #lipoproteinasModalTabela .modal-content {
+        background-color: #4a4a4a;
+        color: #f5f5f5;
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    #lipoproteinasModalTabela .modal-header,
+    #lipoproteinasModalTabela .modal-footer {
+        border: none;
+    }
+
+    #lipoproteinasModalTabela .modal-title {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    #lipoproteinasModalTabela table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        background-color: #4a4a4a;
+        color: #f5f5f5;
+    }
+
+    #lipoproteinasModalTabela th,
+    #lipoproteinasModalTabela td {
+        border: 1px solid #000;
+        padding: 10px;
+        text-align: center;
+    }
+
+    #lipoproteinasModalTabela th {
+        background-color: #808080;
+        font-weight: bold;
+    }
+
+    #lipoproteinasModalTabela .modal-footer {
+        text-align: center;
+        justify-content: center;
+    }
+
+    #lipoproteinasModalTabela .btn-close {
+        background-color: transparent;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    #lipoproteinasModalTabela .btn-submit {
+        background-color: #ffa500;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
+    }
+
+    #lipoproteinasModalTabela .btn-submit:hover {
+        background-color: #e69500;
+    }
+</style>

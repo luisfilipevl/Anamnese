@@ -1,0 +1,119 @@
+{% load static %}
+{% csrf_token %}
+<div class="modal fade" id="glicemiaModalTabela" tabindex="-1" aria-labelledby="glicemiaModalTabelaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="glicemiaModalTabelaLabel">Valores de referência para glicemia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Classificação</th>
+                            <th>Glicose (mg/d)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Normal</td>
+                            <td>Até 100</td>
+                        </tr>
+                        <tr>
+                            <td>Elevado</td>
+                            <td>100-125</td>
+                        </tr>
+                        <tr>
+                            <td>Diabetes</td>
+                            <td>&gt; 126</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-4 text-center"> Seu nível de glicemia estar {{ ficha.nivel_glicemia }}.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-submit" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    /* Estilos personalizados para o modal #glicemiaModalTabela */
+    #glicemiaModalTabela .modal-dialog {
+        max-width: 600px;
+        /* Largura ajustada */
+    }
+
+    #glicemiaModalTabela .modal-content {
+        background-color: #4a4a4a;
+        /* Cor de fundo cinza escuro */
+        color: #f5f5f5;
+        /* Cor do texto */
+        border-radius: 8px;
+        padding: 20px;
+        /* Espaçamento interno */
+    }
+
+    #glicemiaModalTabela .modal-header,
+    #glicemiaModalTabela .modal-footer {
+        border: none;
+        /* Remove bordas padrão */
+    }
+
+    #glicemiaModalTabela .modal-title {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    #glicemiaModalTabela table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        background-color: #4a4a4a;
+        color: #f5f5f5;
+    }
+
+    #glicemiaModalTabela th,
+    #glicemiaModalTabela td {
+        border: 1px solid #000;
+        /* Borda da tabela */
+        padding: 10px;
+        text-align: center;
+    }
+
+    #glicemiaModalTabela th {
+        background-color: #808080;
+        /* Cabeçalho cinza */
+        font-weight: bold;
+    }
+
+    #glicemiaModalTabela .modal-footer {
+        text-align: center;
+        justify-content: center;
+    }
+
+    #glicemiaModalTabela .btn-close {
+        background-color: transparent;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    #glicemiaModalTabela .btn-submit {
+        background-color: #ffa500;
+        /* Botão laranja */
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
+    }
+
+    #glicemiaModalTabela .btn-submit:hover {
+        background-color: #e69500;
+        /* Cor mais escura no hover */
+    }
+</style>

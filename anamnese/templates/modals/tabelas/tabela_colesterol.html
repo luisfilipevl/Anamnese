@@ -1,0 +1,113 @@
+{% load static %}
+{% csrf_token %}
+<div class="modal fade" id="colesterolModalTabela" tabindex="-1" aria-labelledby="colesterolModalTabelaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="colesterolModalTabelaLabel">Relação colesterol total/colesterol HDL</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Classificação</th>
+                            <th>CT/HDL-C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Baixo risco</td>
+                            <td>&lt; 3,5</td>
+                        </tr>
+                        <tr>
+                            <td>Alto risco</td>
+                            <td>&gt; 5,0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-4 text-center"> Seu nível de colesterol estar {{ ficha.nivel_colesterol }}.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-submit" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Estilos personalizados para o modal #colesterolModalTabela */
+    #colesterolModalTabela .modal-dialog {
+        max-width: 600px;
+        /* Largura ajustada */
+    }
+
+    #colesterolModalTabela .modal-content {
+        background-color: #4a4a4a;
+        /* Cor de fundo cinza escuro */
+        color: #f5f5f5;
+        /* Cor do texto */
+        border-radius: 8px;
+        padding: 20px;
+        /* Espaçamento interno */
+    }
+
+    #colesterolModalTabela .modal-header,
+    #colesterolModalTabela .modal-footer {
+        border: none;
+        /* Remove bordas padrão */
+    }
+
+    #colesterolModalTabela .modal-title {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    #colesterolModalTabela table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        background-color: #4a4a4a;
+        color: #f5f5f5;
+    }
+
+    #colesterolModalTabela th,
+    #colesterolModalTabela td {
+        border: 1px solid #000;
+        /* Borda da tabela */
+        padding: 10px;
+        text-align: center;
+    }
+
+    #colesterolModalTabela th {
+        background-color: #808080;
+        /* Cabeçalho cinza */
+        font-weight: bold;
+    }
+
+    #colesterolModalTabela .modal-footer {
+        text-align: center;
+        justify-content: center;
+    }
+
+    #colesterolModalTabela .btn-close {
+        background-color: transparent;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    #colesterolModalTabela .btn-submit {
+        background-color: #ffa500;
+        /* Botão laranja */
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
+    }
+
+    #colesterolModalTabela .btn-submit:hover {
+        background-color: #e69500;
+        /* Cor mais escura no hover */
+    }
+</style>

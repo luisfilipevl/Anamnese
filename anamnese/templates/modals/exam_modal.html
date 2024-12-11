@@ -1,4 +1,4 @@
-<!-- templates/modals/exam_modal.html -->
+<!-- templates/modals/modal_exames/exam_modal.html -->
 <div class="modal fade" id="examModal" tabindex="-1" aria-labelledby="examModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
@@ -15,12 +15,12 @@
             <button onclick="moveToDone(this)">Histórico familiar</button>
             <button onclick="moveToDone(this)">Histórico da doença atual</button>
             <button onclick="moveToDone(this)">Sintomas e queixas</button>
-            <button onclick="moveToDone(this)">Pressão arterial (PA)</button>
+            <button onclick="moveToDone(this)" data-bs-toggle="modal" data-bs-target="#pressaoArterialModal">Pressão arterial (PA)</button>
             <button onclick="moveToDone(this)" data-bs-toggle="modal" data-bs-target="#triglicerideosModal">Triglicerídeos</button>
-            <button onclick="moveToDone(this)">Lipoproteínas plasmáticas</button>
-            <button onclick="moveToDone(this)">Glicemia</button>
-            <button onclick="moveToDone(this)">Colesterol</button>
-            <button onclick="moveToDone(this)">Colesterol plasmáticos</button>
+            <button onclick="moveToDone(this)" data-bs-toggle="modal" data-bs-target="#lipoproteinasModal">Lipoproteínas plasmáticas</button>
+            <button onclick="moveToDone(this)" data-bs-toggle="modal" data-bs-target="#glicemiaModal">Glicemia</button>
+            <button onclick="moveToDone(this)" data-bs-toggle="modal" data-bs-target="#colesterolModal">Colesterol</button>
+            <button onclick="moveToDone(this)" data-bs-toggle="modal" data-bs-target="#plasmaticosColesterolModal">Colesterol plasmáticos</button>
             <button onclick="moveToDone(this)">Questionário PAR-Q</button>
             <button onclick="moveToDone(this)">Questionário fatores de risco</button>
           </div>
@@ -35,8 +35,15 @@
     </div>
   </div>
 </div>
-  
-{% include 'modals/Triglicerídeos_modal.html' %}
+
+
+{% include 'modals/modal_exames/triglicerideos_modal.html' with modal_id='triglicerideos' modal_title='Triglicerídeos' cadastro_id=cadastro_id %}
+{% include 'modals/modal_exames/colesterol_modal.html' with modal_id='colesterol' modal_title='Colesterol' %}
+{% include 'modals/modal_exames/glicemia_modal.html' with modal_id='glicemia' modal_title='Glicemia' %}
+{% include 'modals/modal_exames/lipoproteinas_modal.html' with modal_id='lipoproteinas' modal_title='Lipoproteínas' %}
+{% include 'modals/modal_exames/plasmatico_modal.html' with modal_id='plasmatico' modal_title='Lásmatico' %}
+{% include 'modals/modal_exames/pressao_modal.html' with modal_id='pressao' modal_title='Pressão Arterial' %}
+
 
 <style>
     /* Estilo do contêiner com aba */
