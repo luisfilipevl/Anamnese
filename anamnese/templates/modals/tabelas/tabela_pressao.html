@@ -1,0 +1,127 @@
+{% load static %}
+{% csrf_token %}
+<div class="modal fade" id="pressaoModalTabela" tabindex="-1" aria-labelledby="pressaoModalTabelaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pressaoModalTabelaLabel">Classificação dos níveis de pressão arterial (PA), para adultos acima de 18 anos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Categorias</th>
+                            <th>PA sistólica (mmHg)</th>
+                            <th>PA diastólica (mmHg)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Normal</td>
+                            <td>&lt; 130</td>
+                            <td>&lt; 85</td>
+                        </tr>
+                        <tr>
+                            <td>Normal alta</td>
+                            <td>130-139</td>
+                            <td>85-89</td>
+                        </tr>
+                        <tr>
+                            <td>Hipertensão estágio 1 (leve)</td>
+                            <td>140-159</td>
+                            <td>90-99</td>
+                        </tr>
+                        <tr>
+                            <td>Hipertensão estágio 2 (moderado)</td>
+                            <td>160-179</td>
+                            <td>100-109</td>
+                        </tr>
+                        <tr>
+                            <td>Hipertensão estágio 3 (severa)</td>
+                            <td>180-209</td>
+                            <td>110-119</td>
+                        </tr>
+                        <tr>
+                            <td>Hipertensão estágio 4 (muito severa)</td>
+                            <td>&gt; 210</td>
+                            <td>&gt; 120</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-4 text-center"> Seu nível da pressão arterial estar {{ ficha.nivel_pressão_arterial }}.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-submit" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Estilos personalizados para o modal #pressaoModalTabela */
+    #pressaoModalTabela .modal-dialog {
+        max-width: 700px;
+    }
+
+    #pressaoModalTabela .modal-content {
+        background-color: #4a4a4a;
+        color: #f5f5f5;
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    #pressaoModalTabela .modal-header,
+    #pressaoModalTabela .modal-footer {
+        border: none;
+    }
+
+    #pressaoModalTabela .modal-title {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    #pressaoModalTabela table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        background-color: #4a4a4a;
+        color: #f5f5f5;
+    }
+
+    #pressaoModalTabela th,
+    #pressaoModalTabela td {
+        border: 1px solid #000;
+        padding: 10px;
+        text-align: center;
+    }
+
+    #pressaoModalTabela th {
+        background-color: #808080;
+        font-weight: bold;
+    }
+
+    #pressaoModalTabela .modal-footer {
+        text-align: center;
+        justify-content: center;
+    }
+
+    #pressaoModalTabela .btn-close {
+        background-color: transparent;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    #pressaoModalTabela .btn-submit {
+        background-color: #ffa500;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
+    }
+
+    #pressaoModalTabela .btn-submit:hover {
+        background-color: #e69500;
+    }
+</style>

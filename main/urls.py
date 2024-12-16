@@ -23,21 +23,12 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="home"),
-    path('<int:cadastro_id>/', views.index_usuario, name='index_usuario'),
     
-    path('cadastro', views.cadastross, name='cadastross'),
+    path('cadastro/', views.cadastross, name='cadastross'),
     path('login2',views.login2, name='login2'),
     path("logout/", views.logout_, name="logout"),
 
-    
-    path('<int:cadastro_id>/ficha/', views.fficha, name="ficha"),
-    path('<int:cadastro_id>/dados/', views.dadospessoais, name="dadospessoais"),
-    path('<int:cadastro_id>/doenças/', views.historicodoenças, name="historicodoenças"),
-    path('<int:cadastro_id>/familiar/', views.historicofamiliar, name="historicofamiliar"),
-    path('<int:cadastro_id>/sintomas/', views.sintomas, name="sintomas"),
-    
-    path('<int:cadastro_id>/excluir/', views.excluir_cadastro, name="excluir_cadastro"),
-    path('<int:cadastro_id>/atualizar/', views.atualizar_cadastro, name='atualizar_cadastro'),
+    path('<int:cadastro_id>/', include('anamnese.urls')),  # Delega as rotas baseadas no cadastro_id
 ]
 
 if settings.DEBUG:

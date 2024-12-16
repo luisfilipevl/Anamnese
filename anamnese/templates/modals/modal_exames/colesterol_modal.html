@@ -18,12 +18,12 @@
                     </form>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-submit" data-bs-dismiss="modal">Entregar</button>
+                    <button type="button" class="btn btn-submit" data-bs-toggle="modal" data-bs-target="#colesterolModalTabela">Entregar</button>
                 </div>
             </div>
         </div>
 </div>
-
+{% include 'modals/tabelas/tabela_colesterol.html' with modal_id='colesterolModalTabela' modal_title='colesterolModalTabela' %}
     <style>
         /* Custom styling for this specific modal using #colesterolModal */
         #colesterolModal .modal-dialog {

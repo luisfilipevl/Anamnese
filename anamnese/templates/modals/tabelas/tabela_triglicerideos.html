@@ -1,0 +1,112 @@
+{% load static %}
+{% csrf_token %}
+<div class="modal fade" id="triglicerideosModalTabela" tabindex="-1" aria-labelledby="triglicerideosModalTabelaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="triglicerideosModalTabelaLabel">Valores de referência para triglicerídeos plasmáticos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Categorias</th>
+                            <th>Triglicerídeos (mg/dl)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Normal</td>
+                            <td>&lt; 150</td>
+                        </tr>
+                        <tr>
+                            <td>Normal alta</td>
+                            <td>150-200</td>
+                        </tr>
+                        <tr>
+                            <td>Alto</td>
+                            <td>200-499</td>
+                        </tr>
+                        <tr>
+                            <td>Muito alto</td>
+                            <td>&ge; 500</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-4 text-center">Seu nível de triglicerídeos estar {{ ficha.nivel_triglicerideos }}.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-submit" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Estilos personalizados para o modal #triglicerideosModalTabela */
+    #triglicerideosModalTabela .modal-dialog {
+        max-width: 700px;
+    }
+
+    #triglicerideosModalTabela .modal-content {
+        background-color: #4a4a4a;
+        color: #f5f5f5;
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    #triglicerideosModalTabela .modal-header,
+    #triglicerideosModalTabela .modal-footer {
+        border: none;
+    }
+
+    #triglicerideosModalTabela .modal-title {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    #triglicerideosModalTabela table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        background-color: #4a4a4a;
+        color: #f5f5f5;
+    }
+
+    #triglicerideosModalTabela th,
+    #triglicerideosModalTabela td {
+        border: 1px solid #000;
+        padding: 10px;
+        text-align: center;
+    }
+
+    #triglicerideosModalTabela th {
+        background-color: #808080;
+        font-weight: bold;
+    }
+
+    #triglicerideosModalTabela .modal-footer {
+        text-align: center;
+        justify-content: center;
+    }
+
+    #triglicerideosModalTabela .btn-close {
+        background-color: transparent;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    #triglicerideosModalTabela .btn-submit {
+        background-color: #ffa500;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
+    }
+
+    #triglicerideosModalTabela .btn-submit:hover {
+        background-color: #e69500;
+    }
+</style>

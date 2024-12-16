@@ -32,10 +32,10 @@
               <a class="btn d-flex flex-column ps-0 text-laranja"   href="./">Início</a>
             </li>
             <li class="nav-item"style="padding-right: 25%;">
-              <a class="btn d-flex flex-column ps-0 text-laranja"  href="#" data-bs-toggle="modal" data-bs-target="#examModal">Exames</a>
+              <a class="btn d-flex flex-column ps-0 text-laranja"  href=""data-bs-toggle="modal" data-bs-target="#contactModal">Exames</a>
             </li>
             <li class="nav-item"style="padding-right: 25%;">
-              <a class="btn d-flex flex-column ps-0 text-laranja"  href="./ficha">Ficha</a>
+              <a class="btn d-flex flex-column ps-0 text-laranja"  href=""data-bs-toggle="modal" data-bs-target="#contactModal">Ficha</a>
             </li>
             <li class="nav-item" style="padding-right: 25%;">
               <button type="button" class="btn d-flex flex-column ps-0 text-laranja" style="background-color: transparent;" data-bs-toggle="modal" data-bs-target="#contactModal">
@@ -107,7 +107,7 @@
         </ul>
 
         <div class="d-flex justify-content-end mx-4 p-3"style="margin-top: -20px;">
-          <a href="./dados" class="btn btn-lg btn-warning btn-proximo text-white">Saiba mais</a>
+          <a href="" class="btn btn-lg btn-warning btn-proximo text-white" data-bs-toggle="modal" data-bs-target="#contactModal">Saiba mais</a>
         </div>
       </div>
 
@@ -124,7 +124,7 @@
         </ul>
 
         <div class="d-flex justify-content-end mx-4 p-3" style="margin-top: -21px;">
-          <a href="./sintomas" class="btn btn-lg btn-warning btn-proximo text-white">Saiba mais</a>
+          <a href="" class="btn btn-lg btn-warning btn-proximo text-white" data-bs-toggle="modal" data-bs-target="#contactModal">Saiba mais</a>
         </div>
       </div>
 
@@ -141,7 +141,7 @@
         </ul>
 
         <div class="d-flex justify-content-end mx-4 p-3"style="margin-top: -50px;">
-          <a href="./familiar" class="btn btn-lg btn-warning btn-proximo text-white">Saiba mais</a>
+          <a href="" class="btn btn-lg btn-warning btn-proximo text-white" data-bs-toggle="modal" data-bs-target="#contactModal">Saiba mais</a>
         </div>
       </div>
       <div class="col-10 col-md-5 col-xl-2 d-flex flex-column align-items-center pt-5 text-white bg-cards mt-5 mt-xl-0 me-2" style="width: 252px; height: 587px;background-color: #11A9AD;">
@@ -156,7 +156,7 @@
         </ul>
 
         <div class="d-flex justify-content-end mx-4 p-3"style="margin-top: -24px;">
-          <a href="./doenças" class="btn btn-lg btn-warning btn-proximo text-white">Saiba mais</a>
+          <a href="" class="btn btn-lg btn-warning btn-proximo text-white" data-bs-toggle="modal" data-bs-target="#contactModal">Saiba mais</a>
         </div>
       </div>
 
@@ -252,4 +252,11 @@
     crossorigin="anonymous"></script>
 </body>
 
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 </html>

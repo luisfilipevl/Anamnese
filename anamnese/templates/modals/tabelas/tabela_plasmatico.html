@@ -1,0 +1,108 @@
+{% load static %}
+{% csrf_token %}
+<div class="modal fade" id="plasmaticoModalTabela" tabindex="-1" aria-labelledby="plasmaticoModalTabelaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="plasmaticoModalTabelaLabel">Classificação dos níveis plasmáticos de colesterol</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Classificação</th>
+                            <th>Colesterol (mg/dl)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ótimo</td>
+                            <td>&lt; 200</td>
+                        </tr>
+                        <tr>
+                            <td>Limítrofe</td>
+                            <td>200-239</td>
+                        </tr>
+                        <tr>
+                            <td>Alto</td>
+                            <td>&gt;= 240</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-4 text-center"> Seu nível de plasmático de colesterol estar {{ ficha.nivel_plasmaticos_colesterol }}.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-submit" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Estilos personalizados para o modal #plasmaticoModalTabela */
+    #plasmaticoModalTabela .modal-dialog {
+        max-width: 600px;
+    }
+
+    #plasmaticoModalTabela .modal-content {
+        background-color: #4a4a4a;
+        color: #f5f5f5;
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    #plasmaticoModalTabela .modal-header,
+    #plasmaticoModalTabela .modal-footer {
+        border: none;
+    }
+
+    #plasmaticoModalTabela .modal-title {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    #plasmaticoModalTabela table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        background-color: #4a4a4a;
+        color: #f5f5f5;
+    }
+
+    #plasmaticoModalTabela th,
+    #plasmaticoModalTabela td {
+        border: 1px solid #000;
+        padding: 10px;
+        text-align: center;
+    }
+
+    #plasmaticoModalTabela th {
+        background-color: #808080;
+        font-weight: bold;
+    }
+
+    #plasmaticoModalTabela .modal-footer {
+        text-align: center;
+        justify-content: center;
+    }
+
+    #plasmaticoModalTabela .btn-close {
+        background-color: transparent;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    #plasmaticoModalTabela .btn-submit {
+        background-color: #ffa500;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
+    }
+
+    #plasmaticoModalTabela .btn-submit:hover {
+        background-color: #e69500;
+    }
+</style>

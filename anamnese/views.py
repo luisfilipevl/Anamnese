@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db import IntegrityError
+from django.http import HttpResponseRedirect
+
 
 def index(request):
     return render(request, 'anamnese/index.html')
@@ -48,8 +51,7 @@ def dadospessoais(request, cadastro_id):
         ficha.usuario.save()  # Salva o cadastro (atualizando email, por exemplo)
         ficha.save()  # Salva os dados da ficha
 
-        return redirect('dadospessoais', cadastro_id=cadastro_id)  # Redireciona após salvar
-
+        
     return render(request, 'anamnese/dadospessoais.html', {
         'ficha': ficha,
         'cadastro_id': cadastro_id
@@ -105,9 +107,6 @@ def examess (request):
     return render (request, 'anamnese/exames.html')
 
 
-
-
-    
 def cadastross(request):
     if request.method == 'POST':
         form = CadastroForm(request.POST)
@@ -117,29 +116,33 @@ def cadastross(request):
             senha = form.cleaned_data['senha']
             CPF = form.cleaned_data['CPF']
             
-            cadastro = Cadastro.objects.create(
-                nome_usuario=nome_usuario,
-                email=email,
-                senha=senha,
-                CPF=CPF
-            )
-
-            Ficha.objects.create(usuario=cadastro)
-        if request.method =="GET":
-            return render (request, 'index.html')
-        else:   
-            usuario = request.POST.get ('nome_usuario')
-            cpf = request.POST.get ('CPF')
-            email = request.POST.get ('email')
-            senha = request.POST.get ('senha')
-
-            user = User.objects.create_user(username=usuario, email=email, password=senha)
-            user.save()
+            # Verifica se já existe um cadastro com o mesmo nome de usuário, e-mail ou CPF
+            if Cadastro.objects.filter(nome_usuario=nome_usuario).exists():
+                messages.error(request, 'Nome de usuário já cadastrado.')
+            elif Cadastro.objects.filter(email=email).exists():
+                messages.error(request, 'E-mail já cadastrado.')
+            elif Cadastro.objects.filter(CPF=CPF).exists():
+                messages.error(request, 'CPF já cadastrado.')
+            else:
+                try:
+                    # Cria o cadastro e a ficha associada
+                    cadastro = Cadastro.objects.create(
+                        nome_usuario=nome_usuario,
+                        email=email,
+                        senha=senha,
+                        CPF=CPF
+                    )
+                    Ficha.objects.create(usuario=cadastro)
+                    messages.success(request, 'Cadastro realizado com sucesso!')
+                    return redirect('index')  # Redireciona para a página inicial ou outra página
+                except IntegrityError:
+                    messages.error(request, 'Ocorreu um erro ao salvar os dados.')
+        else:
+            messages.error(request, 'Formulário inválido.')
     else:
-        print("-entrou primeiro aqui")
         form = CadastroForm()
-    
-    return render(request,'anamnese/index.html', {'form': form})
+
+    return render(request, 'anamnese/index.html', {'form': form})
 
 def login2(request):
     if request.method == "POST":
@@ -160,10 +163,10 @@ def login2(request):
                 return redirect(f'/{cadastro.id}/')  # Redireciona para a página inicial do usuário
             except Cadastro.DoesNotExist:
                 messages.error(request, "Cadastro não encontrado. Entre em contato com o suporte.")
-                return redirect('login2')
+                return redirect('home')
         else:
             messages.error(request, "Usuário ou senha inválidos.")
-            return redirect('login2')
+            return redirect('home')
     else:
         # Renderiza a página de login em caso de requisição GET
         return render(request, 'home')
@@ -181,13 +184,36 @@ def excluir_cadastro(request, cadastro_id):
 @login_required
 def atualizar_cadastro(request, cadastro_id):
     cadastro = get_object_or_404(Cadastro, id=cadastro_id)
+    user = cadastro.usuario  # Presume que `Cadastro` tem um relacionamento com User
 
     if request.method == 'POST':
-        form = CadastroForm(request.POST, instance=cadastro)
+        form = CadastroForm(request.POST, instance=cadastro, user_instance=user)
         if form.is_valid():
-            form.save()
-            return redirect('index_usuario', cadastro_id=cadastro_id)
+            # Atualiza os dados do Cadastro
+            cadastro = form.save()
+            
+            # Atualiza os campos do User
+            user.username = form.cleaned_data['username']
+            user.email = form.cleaned_data['email']
+            user.save()
+
+            return redirect('anamnese:index_usuario', cadastro_id=cadastro.id)
     else:
-        form = CadastroForm(instance=cadastro)
+        form = CadastroForm(instance=cadastro, user_instance=user)
 
     return render(request, 'anamnese/cadastro_modal.html', {'form': form, 'cadastro_id': cadastro_id})
+
+
+
+def atualizar_triglicerideos(request, cadastro_id):
+    ficha = get_object_or_404(Ficha, usuario__id=cadastro_id)
+    if request.method == 'POST':
+        nivel_triglicerideos = request.POST.get('nivel_triglicerideos')
+        if nivel_triglicerideos:  # Verifica se o valor foi enviado
+            ficha.nivel_triglicerideos = float(nivel_triglicerideos)
+            ficha.save()
+        
+    return render(request, 'anamnese/index_usuario.html', {
+        'ficha': ficha,
+        'cadastro_id': cadastro_id
+    })

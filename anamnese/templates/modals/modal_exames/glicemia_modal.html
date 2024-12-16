@@ -24,12 +24,12 @@
                 </form>
             </div>
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-submit" data-bs-dismiss="modal">Entregar</button>
+                <button type="button" class="btn btn-submit" data-bs-toggle="modal" data-bs-target="#glicemiaModalTabela">Entregar</button>
             </div>
         </div>
     </div>
 </div>
-
+{% include 'modals/tabelas/tabela_glicemia.html' with modal_id='glicemiaModalTabela' modal_title='glicemiaModalTabela' %}
 <style>
     /* Custom styles for the #glicemiaModal only */
     #glicemiaModal .modal-content {

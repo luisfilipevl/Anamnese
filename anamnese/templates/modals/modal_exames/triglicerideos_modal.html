@@ -8,22 +8,30 @@
                     <h5 class="modal-title" id="triglicerideosModalLabel">Triglicerídeos</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <p>Coloque os valores do exame</p>
-                    <form>
-                        <div class="form-group mb-3">
-                            <label for="triglicerideosInput" class="form-label">Triglicerídeos</label>
-                            <input type="number" class="form-control" id="triglicerideosInput" placeholder="">
+                {% if cadastro %}
+                    <form method="POST" action="{% url 'anamnese:atualizar_cadastro' cadastro_id=cadastro.id %}">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            <p>Coloque os valores do exame</p>
+                            <div class="form-group mb-3">
+                                <label for="triglicerideosInput" class="form-label">Triglicerídeos</label>
+                                <input type="number" name="nivel_triglicerideos" id="nivel_triglicerideos" 
+                                    class="form-control mb-3" 
+                                    placeholder="Triglicerídeos" 
+                                    value="{{ ficha.nivel_triglicerideos }}">
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="submit" class="btn btn-submit">Entregar</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-submit" data-bs-dismiss="modal">Entregar</button>
-                </div>
+                {% else %}
+                    <p>Cadastro não encontrado.</p>
+                {% endif %}
             </div>
         </div>
     </div>
-
+{% include 'modals/tabelas/tabela_triglicerideos.html' with modal_id='triglicerideosModalTabela' modal_title='triglicerideosModalTabela' %}
     <style>
         /* Custom styling for this specific modal using #triglicerideosModal */
         #triglicerideosModal .modal-dialog {

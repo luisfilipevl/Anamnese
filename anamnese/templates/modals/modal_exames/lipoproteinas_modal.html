@@ -17,12 +17,12 @@
                 </form>
             </div>
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-submit" data-bs-dismiss="modal">Entregar</button>
+                <button type="button" class="btn btn-submit" data-bs-toggle="modal" data-bs-target="#lipoproteinasModalTabela">Entregar</button>
             </div>
         </div>
     </div>
 </div>
-
+{% include 'modals/tabelas/tabela_lipoproteinas.html' with modal_id='lipoproteinasModalTabela' modal_title='lipoproteinasModalTabela' %}
 <style>
     /* Custom styling for this specific modal using #lipoproteinasModal */
     #lipoproteinasModal .modal-dialog {
