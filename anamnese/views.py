@@ -163,10 +163,10 @@ def login2(request):
                 return redirect(f'/{cadastro.id}/')  # Redireciona para a página inicial do usuário
             except Cadastro.DoesNotExist:
                 messages.error(request, "Cadastro não encontrado. Entre em contato com o suporte.")
-                return redirect('login2')
+                return redirect('home')
         else:
             messages.error(request, "Usuário ou senha inválidos.")
-            return redirect('login2')
+            return redirect('home')
     else:
         # Renderiza a página de login em caso de requisição GET
         return render(request, 'home')
