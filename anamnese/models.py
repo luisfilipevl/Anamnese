@@ -19,10 +19,12 @@ class Ficha(models.Model):
     nome = models.CharField(max_length=100, blank=True)
     endereco = models.TextField(blank=True)
     data_nascimento = models.DateField(blank=True, null=True)
-    sexo = models.CharField(max_length=1, blank=True)
+    sexo = models.CharField(max_length=20, blank=True)
     profissao = models.CharField(max_length=100, blank=True)
     estado_civil = models.CharField(max_length=100, blank=True)
 
+    fuma = models.CharField(max_length=15, blank=True)
+    alcool = models.CharField(max_length=15, blank=True)
     doencas_familiares = models.TextField(blank=True)
     doencas_pessoais = models.TextField(blank=True)
     doencas_atual = models.TextField(blank=True)

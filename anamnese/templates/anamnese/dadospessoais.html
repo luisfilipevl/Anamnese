@@ -71,7 +71,7 @@
       <section class="row justify-content-between justify-content-lg-around p-5" style="background-color: #41B6B6;">
         <div class="col-12 col-sm-10 col-lg-5">
           <div class="input-groups">
-            <input type="text" name="nome" id="nome" class="form-control mb-3" placeholder="Nome" value="{{ ficha.usuario.nome_usuario }}">
+            <input type="text" name="nome" id="nome" class="form-control mb-3" placeholder="Nome" value="{{ ficha.nome }}">
             <input type="text" name="endereco" id="endereco" class="form-control mb-3" placeholder="Endereço" value="{{ ficha.endereco }}">
             <input type="email" name="email" id="email" class="form-control mb-3" placeholder="E-mail" value="{{ ficha.usuario.email }}">
           </div>
@@ -129,37 +129,6 @@
         </div>
       </div>
     </section>
-
-    <div class="modal fade p-0" id="contactModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered justify-content-center">
-          <div class="modal-content d-flex align-items-center justify-content-center w-100 w-lg-100 h-75">
-              <section class="row form d-flex justify-content-center position-relative w-100 h-75" style="background-color: #0D5959;">
-                <div class="img d-none d-lg-flex">
-                  <img src="{% static 'img/user (1).svg'%}" alt="">
-                </div>
-            
-                <form action="" method="post" class="col-10 d-flex w-100  justify-content-start align-items-center flex-column p-4 p-lg-5 p-md-5 p-lg-3 mt-5 mx-5 h-75">
-                  <h1 class="text-white mt-3">Login</h1>
-                  <div class="input-group d-flex flex-column  justify-content-end my-3 my-lg-3">
-                    <label for="" class="form-label text-white fs-3 fw-semibold me-2">Usuário</label>
-                    <input type="text" name="" id="" class="form-control nome w-100">
-                  </div>
-            
-                  <div class="input-group d-flex flex-column  justify-content-end my-3 my-lg-3">
-                    <label for="" class="form-label text-white fs-3 fw-semibold ms-0 me-4">Senha</label>
-                    <input  type="password" id="pass" name="password" class="form-control cpf w-100">
-                  </div>
-          
-                  <div class="d-flex flex-column">
-                    <a href="./" class="btn btn-lg btn-warning btn-proximo p-3 fs-3 fw-semibold text-white">Login</a>
-                   
-                  </div>
-          
-                </form>
-              </section>
-          </div>        
-        </div>
-      </div>
 
   </main>
 

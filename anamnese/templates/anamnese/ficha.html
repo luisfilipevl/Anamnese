@@ -64,7 +64,7 @@
       <!-- Exibindo dados da ficha -->
       
       <div class="d-flex p-3 mt-4 bg-cinza">
-        <h3 class="fw-bold">Nome: {{ ficha.usuario.nome_usuario }}</h3>
+        <h3 class="fw-bold">Nome: {{ ficha.nome }}</h3>
         <h3 class="fw-bold m-auto">Idade: {{ ficha.idade }}</h3> <!-- Se você tem idade, senão substitua com a data de nascimento -->
       </div>
   
@@ -176,17 +176,7 @@
       <h3 class="fw-semibold mt-5">Há a necessidade de presença médica durante a prática de exercícios físicos?</h3>
       <div class="w-100 p-5 mb-5 borda-preta" ></div>
 
-      <h3 class="fw-semibold">Resultado do questionário PAR-Q:</h3>
-      <p class="fs-4 mb-5">Esse questionário Physical Activity Readiness (PAR-Q), ou Liberação para Atividades Fisicas (LAF-Q), tem como objetivo determinar a necessidade de consulta medica antes do inicio de programas de atividades  físicas ou testes de aptidão física. O questionário consiste em sete perguntas, se o cliente responder “sim “ a qualquer uma delas, devera ser encaminhado para consulta medica.</p>
-
-      <div class="w-100 p-1 mb-5 borda-preta" >
-        <p class="fs-4 fw-normal text-center">O usuário marcou “sim” para as alternativas [], então ele necessitará de acompanhamento médico.</p>
-        <p class="fs-4 fw-normal text-center">1. Alguma vez foi mencionado que você tem algum problema cardíaco ou que só poderia fazer atividade física com recomendação médica?</p>
-      </div>
-
-      <div class="w-100 p-1 mb-5 borda-preta">
-        <p class="fs-4 fw-normal text-center">O usuário marcou "não" para todas as alternativas, logo, ele não se faz necessário a utilização de acompanhamento médico para a realização de testes de aptidão física.</p>
-      </div>
+      
 
       <h3 class="fw-semibold mb-3">Classificação de risco coronario:</h3>
       <p class="fs-4 lh-lg">De acordo com o resultado de todos os exames realizados pelo usuário, o nível de risco em que ele se encontra,  é:  <span class="fw-semibold p-1" style="border: 4px solid #000">Baixo risco</span>     <span class="fw-semibold p-1" style="border: 4px solid #000">Risco moderado</span>      <span class="fw-semibold p-1" style="border: 4px solid #000">Alto risco</span></p>
@@ -205,8 +195,7 @@
 
 
   </main>
-  {% include 'modals/exam_modal.html' %}
-  {% include 'modals/login_modal.html' %}
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
