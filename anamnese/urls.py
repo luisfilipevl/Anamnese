@@ -16,4 +16,5 @@ urlpatterns = [
 
 
     path('atualizar_triglierideos/', views.atualizar_triglicerideos, name='atualizar_triglicerideos'),
+    path('atualizar_colesterol/', views.atualizar_colesterol, name='atualizar_colesterol'),
 ]

@@ -1,28 +1,33 @@
 {% load static %}
 
     <!-- Modal Structure -->
-<div class="modal fade" id="colesterolModal" tabindex="-1" aria-labelledby="colesterolModalLabel" aria-hidden="true">
+    <div class="modal fade" id="colesterolModal" tabindex="-1" aria-labelledby="colesterolModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="colesterolModalLabel">Colesterol</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <p>Coloque os valores do exame</p>
-                    <form>
-                        <div class="form-group mb-3">
-                            <label for="cholesterol" class="form-label">Colesterol</label>
-                            <input type="number" class="form-control" id="cholesterol" placeholder="">
+                {% if cadastro %}
+                    <form method="POST" action="{% url 'anamnese:atualizar_colesterol' cadastro_id=cadastro.id %}">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            <p>Coloque os valores do exame</p>
+                                <div class="form-group mb-3">
+                                    <label for="cholesterol" class="form-label">Colesterol</label>
+                                    <input type="number" class="form-control" name="nivel_colesterol" id="nivel_colesterol" placeholder="colesterol" value="{{ ficha.nivel_colesterol}}">
+                                </div>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="submit" class="btn btn-submit"  data-bs-toggle="modal" data-bs-target="#colesterolModalTabela">Entregar</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-submit" data-bs-toggle="modal" data-bs-target="#colesterolModalTabela">Entregar</button>
-                </div>
+                {% else %}
+                    <p>Cadastro não encontrado.</p>
+                {% endif %}
             </div>
         </div>
-</div>
+    </div>
 {% include 'modals/tabelas/tabela_colesterol.html' with modal_id='colesterolModalTabela' modal_title='colesterolModalTabela' %}
     <style>
         /* Custom styling for this specific modal using #colesterolModal */

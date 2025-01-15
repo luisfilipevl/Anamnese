@@ -26,7 +26,10 @@
                         </tr>
                     </tbody>
                 </table>
-                <p class="mt-4 text-center"> Seu nível de colesterol estar {{ ficha.nivel_colesterol }}.</p>
+                <form action="">
+                    {% csrf_token %}
+                    <p class="mt-4 text-center"> Seu nível de colesterol estar {{ ficha.nivel_colesterol }}4.0 CT/HDL-C</p>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-submit" data-bs-dismiss="modal">Fechar</button>

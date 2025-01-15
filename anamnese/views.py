@@ -229,3 +229,14 @@ def atualizar_triglicerideos(request, cadastro_id):
             
         
     return redirect(request.path)
+
+def atualizar_colesterol(request, cadastro_id):
+    ficha = get_object_or_404(Ficha, usuario__id=cadastro_id)
+    if request.method == 'POST':
+        nivel_colesterol = request.POST.get('nivel_colesterol')
+        if nivel_colesterol:  # Verifica se o valor foi enviado
+            ficha.nivel_colesterol = float(nivel_colesterol)
+            ficha.save()
+            
+        
+    return redirect(request.path)
